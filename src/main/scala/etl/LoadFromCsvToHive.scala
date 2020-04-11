@@ -2,7 +2,7 @@ package etl
 import java.io.File
 import org.apache.spark.sql.SparkSession
 
-object Spark {
+object LoadFromCsvToHive {
   def getListOfFiles(dir: String):List[File] = {
          val d = new File(dir)
          if (d.exists && d.isDirectory) {
