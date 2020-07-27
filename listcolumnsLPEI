@@ -1,0 +1,2391 @@
+id_perusahaan n 11 1 ID Perusahaan Dari Sistem AHU
+jangka_waktu an 10 1 Jangka Waktu (format date : YYYY-MM-DD)
+status_badan_hukum an 2 1 Status Badan Hukum (* Lihat Lampiran 12)
+status_penanaman_modal an 2 1 Status Penanaman Modal (* Lihat Lampiran
+npwp_perseroan an 15 1 NPWP Perseroan
+nama_perseroan an 255 1 Nama Perseroan
+nama_singkatan an 255 1 Nama Singkatan Perseroan
+jenis_perseroan an 2 1 Jenis Perseroan (* Lihat Lampiran 2)
+status_perseroan an 10 1 Jenis Perusahaan Terbuka atau Tertutup
+alamat_perseroan an 255 1 Alamat Perseroan
+rt_rw_perseroan an 7 1 Rt Rw Perseroan
+kelurahan_perseroan an 50 1 Kelurahan Perseroan
+perseroan_daerah_id an 10 1 ID Daerah Perseroan (* MenggunakanKodefikasi yang diterbitkan oleh
+Kemendagri - Permendagri No 137 Tahun
+kode_pos_perseroan an 5 1 Kode Pos Perseroan
+nomor_telpon_perseroan an 20 1 Nomor Telepon Perseroan
+dalam_bentuk_uang n 20,0 1 Modal Dalam Bentuk Uang (Valuta : IDR)
+dalam_bentuk_lain an 50000 1 Modal Dalam Bentuk Lainnya
+total_modal_dasar n 20,0 1 Total Modal Dasar (Valuta : IDR)
+total_modal_ditempatkan n 20,0 1 Total Modal Ditempatkan (Valuta : IDR)
+Detil Data KBLI N Berulang (N) Rows
+kbli an 1024 N Maksud & Tujuan KBLI
+uraian_usaha an 1024 N Uraian Usaha
+Detil Pemegang Saham N Berulang (N) Rows
+jenis_pemegang_saham n 2 N Jenis Pemegang Saham (* Lihat Lampiran13)
+flag_asing n 1 N Asal Pemegang Saham dari Dalam Negeri /Luar Negeri
+total_modal_pemegang n 20,0 N Total Modal Pemegang Saham (Valuta :IDR)
+jabatan_pemegang_saham an 50 N Jabatan Pemegang Saham
+nama_pemegang_saham an 500 N Nama Pemegang Saham
+jns_identitas_pemegang_saham an 2 N Jenis Identitas Pemegang Saham (* LihatLampiran 4)
+no_identitas_pemegang_saham an 100 N Nomor Identitas Pemegang Saham
+valid_identitas_pemegang_saham an 10 N Valid / Masa Berlaku Pemegang Saham(Format Date : YYYY-MM-DD)
+pengendali_pemegang_saham an 50 N Nama Pengendali Pemegang Saham
+npwp_pemegang_saham an 15 N NPWP Pemegang Saham
+alamat_pemegang_saham an 1024 N Alamat Pemegang Saham
+fax_pemegang_saham an 25 N Fax Pemegang Saham
+email_pemegang_saham an 100 N Email Pemegang Saham
+Detil Penanggung Jawab N Berulang (N) Rows
+flag_asing n 1 N Asal Pemegang Saham dari Dalam Negeri /Luar Negeri (Value : Y = asing, N = BukanAsing)
+nama_penanggung_jwb an 500 N Nama Penganggung Jawab
+jabatan_penanggung_jwb an 250 N Jabatan Penanggung Jawab
+kebangsaan_penanggung_jwb an 2 N Kebangsaan Penanggung Jawab (* LihatLampiran 6)
+jenis_identitas_penanggung_jwban 2 N Jenis Identitas Penganggung Jawab (* LihatLampiran 4)
+no_identitas_penanggung_jwb an 20 N Nomor Identitas Penanggung Jawab
+negara_asal_penanggung_jwb an 2 N Negara Asal Penanggung Jawab (* SumberKodefikasi Negara Mengikuti StandarUnedifact :http://www.unece.org/cefact/locode/service/location )
+no_paspor_penanggung_jwb an 25 N Nomor Paspor Penanggung Jawab
+npwp_penanggung_jwb an 15 N NPWP Penanggung Jawab
+alamat_penanggung_jwb an 1024 N Alamat Penanggung Jawab
+jalan_penanggung_jwb an 50 N Alamat Jalan Penanggung Jawab
+blok_penanggung_jwb an 10 N Alamat Blok Penanggung Jawab
+no_penanggung_jwb an 10 N Alamat Nomor Penanggung Jawab
+rt_rw_penanggung_jwb an 255 N RT RW Penanggung Jawab
+kelurahan_penanggung_jwb an 255 N Kelurahan Penanggung Jawab
+daerah_id_penanggung_jwb an 10 N ID Daerah Penanggung Jawab (*Menggunakan Kodefikasi yang diterbitkan oleh Kemendagri - Permendagri No 137 Tahun 2017 : http://www.kemendagri.go.id/media/filemanager/2018/02/02/p/e/permen_no.137_th_2017.pdf )
+kode_pos_penanggung_jwb an 5 N Kode Pos Penanggung Jawab
+no_telp_penanggung_jwb an 50 N Nomor Telepon Penanggung Jawab
+no_hp_penanggung_jwb an 50 N Nomor Handphone Penanggung Jawab
+no_fax_penanggung_jwb an 50 N Nomor Fax Penanggung Jawab
+email_penanggung_jwb an 100 N Email Penanggung Jawab
+no_pengesahan an 100 1 Nomor Pengesahan Akta Dari Kumham
+tgl_pengesahan an 10 1 Tanggal Pengesahan Akta Dari Kumham(format date : YYYY-MM-DD)
+no_akta_lama an 100 1 Nomor Akta Lama Sebelum Perubahan
+tgl_akta_lama an 10 1 Tanggal Akta Lama Sebelum Perubahan (format date : YYYY-MM-DD)
+no_pengesahan_lama an 100 1 Nomor Pengesahan Akta Lama Sebelum Perubahan Dari Kumham
+tgl_pengesahan_lama an 10 1 Tanggal Pengesahan Akta Lama Sebelum Perubahan Dari Kumham (format date : YYYY-MM-DD)
+Detil Legalitas N Berulang (N) Rows
+jenis_akta an 2 N Jenis Akta Perusahaan (* Lihat Lampiran 7)
+no_akta an 100 N Nomor Akta Perusahaan
+tgl_akta an 10 N Tanggal Akta Perusahaan (format date :YYYY-MM-DD)
+nama_notaris an 100 N NamaNotaris
+alamat_notaris an 255 N AlamatNotaris
+telepon_notaris an 100 N Telepon Notaris
+nib an 13 1 Y Y Nomor Induk Berusaha
+tgl_pengajuan_nib an 10 1 Y Y Tanggal Pengajuan NIB format date : YYYY-MM-DD)
+tgl_terbit_nib an 10 1 Y Y Tanggal Penerbitan NIB format date : YYYY-MM-DD)
+tgl_perubahan_nib an 10 1 Y Y Tanggal Perubahan NIB format date : YYYY-MM-DD)
+oss_id an 25 1 Y Y Oss Id adalah ID yang di Generate Sistem OSS dan Dikirimkan ke K/L/D Bersama Permohonan Nomor Induk Berusaha
+id_izin an 25 1 Y Y Merupakan ID Pengajuan Permohonan Perizinan yang di Generate Sistem OSS, Untuk Pengiriman StatusIzin
+kd_izin an 12 1 Y Y Kode Izin Sistem K/L/D (* Lihat Lampiran 8) kd_daerah an 10 N Y Y Daerah/Lokasi Investasi(* Menggunakan Kodefikasi yang diterbitkan oleh Kemendagri - Permendagri No 137 Tahun 2017 : http://www.kemendagri.go.id/media/filemanager/2018/02/02/p/e/permen_no.137_th_2017.pdf )
+kewenangan an 2 N Y Y 00: Kewenangan Pusat 01: Kewenangan Provinsi 02: Kewenangan Kab/Kota
+jenis_pelaku_usaha an 2 1 Y Y Jenis Pelaku Usaha (* Lihat Lampiran 18)
+no_npp n 20 1 N N Nomor Pendaftaraan Perusahaan Untuk BPJS Ketenagakerjaan
+no_va an 20 1 N N Nomor Pendaftaraan Perusahaan Untuk BPJS Kesehatan
+no_wlkp an 23 1 N N Nomor Wajib Lapor Ketenagakerjaan Perusahaan
+flag_perusahaan an 1 1 N N Flag :Y = Untuk Perusahaan Baru,N = Untuk Perusahaan Lama / Exist
+flag_ekspor an 1 1 N N Y : Melakukan Aktifikas Ekspor, N : Tidak Melakukan Aktifitas Ekspor
+flag_impor an 1 1 N N Y : Melakukan Aktifikas Impor, N : Tidak Melakukan Aktifitas Impor
+jenis_api an 2 1 N N Jenis Angka Pengenal Impor (API) (* Lihat Lampiran 3)
+gabung_negara an 1 1 N Y PMA Merupakan Gabungan Negara Atau Tidak (*Y:GabunganNegara,N: Bukan Gabungan Negara)
+negara_pma_dominan an 2 1 N Y Negara Asing Yang Memiliki Modal Mayoritas
+total_pma n 20,2 1 N Y Total Modal PMA
+nilai_pma_dominan n 20,2 1 N Y Nilai Modal PMA Dominan
+nilai_pmdn n 20,2 1 N Y Nilai Modal PMDN
+persen_pma n 9,2 1 N Y Persentase Modal PMA
+persen_pmdn n 9,2 1 N Y Persentase Modal PMDN
+kd_kawasan n 5 1 Y Y Kode Kawasan (* Lihat Lampiran di https://oss.go.id/oss/#home/portal/lstKawasan)
+jenis_kawasan an 2 1 Y Y Jenis Kawasan (*Lihat Lampiran 21)
+versi_pia an 5 1 Y Y Versi PIA OSS
+jangka_waktu an 10 1 N N Jangka Waktu(format date : YYYY�MM-DD)
+status_badan_hukum an 2 1 N Y Status Badan Hukum (* Lihat Lampiran 12)
+status_penanaman_modal an 2 1 N Y Status Penanaman Modal (* LihatLampiran 1)
+npwp_perseroan an 15 1 Y Y NPWP Perseroan
+nama_perseroan an 255 1 Y Y Nama Perseroan
+nama_singkatan an 255 1 N Y Nama Singkatan Perseroan
+jenis_perseroan an 2 1 N Y Jenis Perseroan (*Lihat Lampiran 2)
+status_perseroan an 1 1 N Y Status Perseroan (*Y:Terbuka,N:Tertutup)
+alamat_perseroan an 255 1 Y Y Alamat Perseroan
+rt_rw_perseroan an 7 1 N N Rt Rw Perseroan
+kelurahan_perseroan an 50 1 Y Y Kelurahan Perseroan
+perseroan_daerah_id an 10 1 Y Y ID Daerah Perseroan(*Menggunakan Kodefikasi yang diterbitkan olehKemendagri - Permendagri No 137 Tahun 2017 :http://www.kemendagri.go.id/media/filemanager/2018/02/02/p/e/permen_no.137_th_2017.pdf )
+kode_pos_perseroan an 5 1 N Y Kode Pos Perseroan
+nomor_telpon_perseroan an 20 1 Y N Nomor Telepon
+Perseroan
+dalam_bentuk_uang n 20,0 1 N Y Modal Dalam Bentuk
+Uang (Valuta : IDR)
+dalam_bentuk_lain an 50000 1 N Y Modal Dalam Bentuk
+Lainnya
+total_modal_dasar n 20,0 1 Y Y Total Modal Dasar
+(Valuta : IDR)
+total_modal_ditempatkan n 20,0 1 N Y Total Modal
+Ditempatkan (Valuta
+: IDR)
+Detil Pemegang Saham N Berulang (N) Rows
+jenis_pemegang_saham n 2 N N Y Jenis Pemegang
+Saham (* Lihat
+Lampiran 13)
+flag_asing n 1 N N Y Asal Pemegang
+Saham dari Dalam
+Negeri / Luar Negeri
+total_modal_pemegang n 20,0 N N Y Total Modal
+Pemegang Saham
+(Valuta : IDR)
+jabatan_pemegang_saham an 50 N N N Jabatan Pemegang
+Saham
+nama_pemegang_saham an 500 N N Y Nama Pemegang
+Saham
+jns_identitas_pemegang_saham an 2 N N N Jenis Identitas
+Pemegang Saham (*
+Lihat Lampiran 4)
+no_identitas_pemegang_saham an 100 N N N Nomor Identitas
+Pemegang Saham
+valid_identitas_pemegang_saham an 10 N N N Valid / Masa Berlaku
+Pemegang Saham
+(Format Date : YYYY�MM-DD)
+pengendali_pemegang_saham an 50 N N N Nama Pengendali
+Pemegang Saham
+npwp_pemegang_saham an 15 N N N NPWP Pemegang
+Saham
+alamat_pemegang_saham an 1024 N N Y Alamat Pemegang
+Saham
+fax_pemegang_saham an 25 N N N Fax Pemegang Saham
+email_pemegang_saham an 100 N N Y Email Pemegang
+Saham
+flag_pajak_pemegang_saham an 2 N N N Flag Validasi Pajak
+Pemegang Saham (*
+Lihat Lampiran 19)
+ket_pajak_pemegang_saham an 255 N N N Keterangan Validasi
+Pajak Pemegang
+Saham
+Detil Penanggung Jawab N Berulang (N) Rows
+flag_asing n 1 N N Y Asal Pemegang
+Saham dari Dalam
+Negeri / Luar Negeri
+(Value : Y = asing, N =
+Bukan Asing)
+jns_identitas_penanggung_jwb an 2 N N Y Jenis Nik
+Penganggung Jawab
+(* Lihat Lampiran 4)
+no_identitas_penanggung_jwb an 100 N N Y Nomor Identitas
+Penanggung Jawab
+nama_penanggung_jwb an 500 N N Y Nama Penganggung
+Jawab
+jabatan_penanggung_jwb an 250 N N N Jabatan Penanggung
+Jawab
+kebangsaan_penanggung_jwb an 2 N N Y Kebangsaan
+Penanggung Jawab (*
+Lihat Lampiran 6)
+negara_asal_penanggung_jwb an 2 N N Y Negara Asal
+Penanggung Jawab (*
+Sumber Kodefikasi
+Negara Mengikuti
+Standar Unedifact :
+http://www.unece.or
+g/cefact/locode/servi
+ce/location )
+npwp_penanggung_jwb an 15 N N N NPWP Penanggung
+Jawab
+alamat_penanggung_jwb an 1024 N N Y Alamat Penanggung
+Jawab
+jalan_penanggung_jwb an 50 N N Y Alamat Jalan
+Penanggung Jawab
+blok_penanggung_jwb an 10 N N Y Alamat Blok
+Penanggung Jawab
+no_penanggung_jwb an 10 N N Y Alamat Nomor
+Penanggung Jawab
+rt_rw_penanggung_jwb an 255 N N Y RT RW Penanggung
+Jawab
+kelurahan_penanggung_jwb an 255 N N Y Kelurahan
+Penanggung Jawab
+daerah_id_penanggung_jwb an 10 N N Y ID Daerah
+Penanggung Jawab (*
+Menggunakan
+Kodefikasi yang
+diterbitkan oleh
+Kemendagri -
+Permendagri No 137
+Tahun 2017 :
+http://www.kemenda
+gri.go.id/media/filem
+anager/2018/02/02/p
+/e/permen_no.137_t
+h_2017.pdf )
+kode_pos_penanggung_jwb an 5 N N Y Kode Pos
+Penanggung Jawab
+no_telp_penanggung_jwb an 50 N N Y Nomor Telepon
+Penanggung Jawab
+no_hp_penanggung_jwb an 50 N N Y Nomor Handphone
+Penanggung Jawab
+no_fax_penanggung_jwb an 50 N N N Nomor Fax
+Penanggung Jawab
+email_penanggung_jwb an 100 N N Y Email Penanggung
+Jawab
+flag_pajak_penanggung_jwb an 2 N N N Flag Validasi Pajak
+Penanggung Jawab (*
+Lihat Lampiran 19)
+ket_pajak_penanggung_jwb an 255 N N N Keterangan Validasi
+Pajak Penanggung
+Jawab
+no_pengesahan an 100 1 N Y Nomor Pengesahan
+Akta Dari Kumham
+tgl_pengesahan an 10 1 N Y Tanggal Pengesahan
+Akta Dari Kumham
+(format date : YYYY�MM-DD)
+no_akta_lama an 100 1 N Y Nomor Akta Lama
+Sebelum Perubahan
+tgl_akta_lama an 10 1 N Y Tanggal Akta Lama
+Sebelum Perubahan
+(format date : YYYY�MM-DD)
+no_pengesahan_lama an 100 1 N Y Nomor Pengesahan
+Akta Lama Sebelum
+Perubahan Dari
+Kumham
+tgl_pengesahan_lama an 10 1 N Y Tanggal Pengesahan
+Akta Lama Sebelum
+Perubahan Dari
+Kumham (format
+date : YYYY-MM-DD)
+Detil Legalitas N Berulang (N) Rows
+jenis_legal an 2 N N Y Jenis Legal
+Perusahaan (* Lihat
+Lampiran 7)
+telepon_notaris an 100 N N Y Telepon Notaris
+Data RPTKA 1 Berulang (1) Rows
+jenis_rptka an 2 1 N N
+no_rptka an 20 1 N
+Jenis Flag RPTKA *(
+01 : Baru, 02:
+Perubahan)
+N No Bacode RPTKA
+rptka_awal an 10 1 N N
+rptka_akhir an 10 1 N N
+rptka_gaji n 20,2 1 N
+Masa Berlaku Dari
+Tanggal(format date :
+YYYY-MM-DD)
+Masa Berlaku Sampai
+Tanggal(format date :
+YYYY-MM-DD)
+N Gaji Tenaga Asing
+jumlah_tka_rptka n 11 1 N N
+jangka_penggunaan_waktu an 10 1 N
+Jumlah Tenaga Kerja
+Asing (TKA) dalam
+Rencana Penggunaan
+Tenaga Kerja Asing
+(RPTKA)
+N Jangka Waktu
+Penggunaan Tenaga
+Kerja Asing (TKA)
+dalam Izin Rencana
+Penggunaan Tenaga
+Kerja Asing (RPTKA)
+no_legal an 100 N N Y Nomor Legal
+Perusahaan
+tgl_legal an 10 N N Y Tanggal Legal
+Perusahaan (format
+date : YYYY-MM-DD)
+nama_notaris an 100 N N Y NamaNotaris
+alamat_notaris an 255 N N Y AlamatNotaris
+(format date : YYYY�MM-DD)
+jangka_waktu_permohonan_rptka n 1 1 N N Jangka Waktu
+Permohonan RPTKA
+(dalam hitungan
+bulan)
+Detil RPTKA Jabatan N Berulang (N) Rows
+id_jabatan n 11 N N N (* Sumber Kodefikasi
+ID Jabatan:
+http://oss.ekon.go.id
+/web2/#home/portal
+/halaman/AGsEZQI
+xDG0FcAY7U2BU
+dAM-/U2FTaA== )
+jabatan an 255 N N N Nama Jabatan
+jumlah n 11 N N N Jumlah Orang Yang
+Memiliki Jabatan
+tgl_mulai an 10 N N N Tanggal Mulai
+Jabatan format date :
+YYYY-MM-DD)
+tgl_selesai an 10 N N N Tanggal Selesai
+Jabatan format date :
+YYYY-MM-DD)
+keterangan an 255 N N N Keterangan
+Detil RPTKA Pendamping N Berulang (N) Rows
+id_jabatan n 10 N N N Id Jabatan
+id_pendamping n 10 N N N Id TKI Pendamping
+nama an 100 N N N Nama TKI
+Pendamping
+nik an 20 N N N Nomor NIK TKI
+Pendamping
+jabatan an 255 N N N Nama Jabatan TKI
+Pendamping
+hp an 25 N N N Nomor HP TKI
+Pendamping
+email an 100 N N N Email TKI
+Pendampiag
+foto an 65535 N N N Foto TKI Pendamping
+Attachment File
+dalam Bentukbentuk
+base64 dengan
+format
+(data:image/jpeg;bas
+e64,STRINGENCODE
+IMAGE)
+pendidikan_min an 50 N N N Tingkat Pendidikan
+Minimal TKI
+Pendamping
+sertifikat an 255 N N N Sertifikat Kompetensi
+TKI Pendamping
+pengalaman_kerja n 11 N N N Pengalaman Kerja TKI
+Pendamping (dalam
+tahun)
+keterangan an 255 N N N Keterangan
+Detil RPTKA Negara N Berulang (N) Rows
+id_negara an 2 N N N Negara Asal Tenaga
+Kerja Asing(* Sumber
+Kodefikasi Negara
+Mengikuti Standar
+Unedifact :
+http://www.unece.or
+g/cefact/locode/servi
+ce/location )
+jumlah n 11 N N N Jumlah Tenaga Kerja
+Asing (TKA) dalam
+Rencana Penggunaan
+Tenaga Kerja Asing
+(RPTKA)
+Detil RPTKA Lokasi N Berulang (N) Rows
+Detil Data Proyek N Berulang (N) Rows
+id_proyek an 25 N Y Y ID / Kode Proyek
+uraian_usaha an 25 N Y Y Uraian Usaha Proyek
+jumlah_tki_l n 10 N Y Y Jumlah Tenaga Kerja
+Indonesia (TKI) Laki -
+Laki
+lokasi_id an 10 N N N ID Daerah
+Penanggung Jawab (*
+Menggunakan
+Kodefikasi yang
+diterbitkan oleh
+Kemendagri -
+Permendagri No 137
+Tahun 2017 :
+http://www.kemenda
+gri.go.id/media/docu
+ments/2015/02/25/l/
+a/lampiran_i.pdf )
+jumlah n 11 N N N Jumlah Tenaga Kerja
+Asing (TKA) dalam
+Rencana Penggunaan
+Tenaga Kerja Asing
+(RPTKA)
+jumlah_tki_p n 10 N Y Y Jumlah Tenaga Kerja
+Indonesia (TKI)
+Perempuan
+jumlah_tka_l n 10 N N Y Jumlah Tenaga Kerja
+Asing (TKA) Laki -Laki
+jumlah_tka_p n 10 N N Y Jumlah Tenaga Kerja
+Asing (TKA)
+Perempuan
+kbli an 5 N Y Y Kode KBLI (*
+Menggunakan Kode
+KBLI Tahun 2017)
+sektor an 3 N Y Y Sektor Usaha
+Berdasarkan KBLI (*
+Lihat Lampiran 20)
+memiliki_menguasai an 1 N Y Y Sudah Memiliki atar
+Menguasai Lahan
+(Value : Y = Sudah
+Memiliki atau
+Menguasai Lahan, N = Belum Memiliki
+atau Menguasai
+Lahan)
+jenis_lokasi an 2 N Y Y Lokasi Berada dalam
+Lintas Administratif
+(Value : Y = Berada
+Dalam Lintas
+Administrasi, N =
+Bukan Berada Dalam
+Lintas Administrasi)
+status_tanah an 2 N Y Y Status Kepemilikan
+Tanah (* Lihat
+Lampiran 5)
+luas_tanah n 10 N Y Y Luas Bidang tanah
+satuan_luas_tanah an 2 N Y Y Satuan Luas Tanah
+(*Lihat Lampiran 17)
+pembelian_pematangan_tanah n 19 N Y Y Nilai Pembelian
+Pematang Tanah
+(Valuta:IDR)
+bangunan_gedung n 19 N Y Y Nilai Bangunan
+Gedung (Valuta:IDR)
+mesin_peralatan n 19 N Y Y Nilai Mesin Peralatan
+(Valuta:IDR)
+mesin_peralatan_usd n 19 N Y Y Nilai Mesin Peralatan
+dalam USD
+investasi_lain n 19 N Y Y Investasi Lainnya
+sub_jumlah n 19 N Y Y Jumlah Asset
+(Valuta:IDR)
+modal_kerja n 19 N Y Y Nilai Modal Kerja
+(Valuta:IDR)
+jumlah_investasi n 19 N Y Y Nilai Jumlah Investasi
+(Valuta:IDR)
+tanggal_kurs an 10 N Y Y Tanggal Kurs (format
+date : YYYY-MM-DD)
+nilai_kurs n 19 N Y Y Nilai Kurs
+kd_kawasan n 11 N Y Y Kode Kawasan (*
+Lihat Lampiran di
+https://oss.go.id/oss/
+#home/portal/lstKa
+wasan)
+jawab_lokasi_b an 1 N Y Y kuisioner Lokasi
+Berdasarkan PP 24
+Tahun 2018 Pasal 33
+Ayat 1 Point B
+jawab_lokasi_c an 1 N Y Y kuisioner Lokasi
+Berdasarkan PP 24
+Tahun 2018 Pasal 33
+Ayat 1 Point C
+jawab_lokasi_d an 1 N Y Y kuisioner Lokasi
+Berdasarkan PP 24
+Tahun 2018 Pasal 33
+Ayat 1 Point D
+jawab_lokasi_e an 1 N Y Y kuisioner Lokasi
+Berdasarkan PP 24
+Tahun 2018 Pasal 33
+Ayat 1 Point E
+jawab_lokasi_f an 1 N Y Y kuisioner Lokasi
+Berdasarkan PP 24
+Tahun 2018 Pasal 33
+Ayat 1 Point F
+jawab_lokasi_g an 1 N Y Y kuisioner Lokasi
+Berdasarkan PP 24
+Tahun 2018 Pasal 33
+Ayat 1 Point G
+flag_perluasan an 1 N N N Proyek Merupakan
+Perluasan/Pengemba
+ngan Usaha Atau
+Bukan (Value : Y =
+Proses
+Perluasan/Pengemba
+ngan Usaha, N =
+Bukan Proses
+Perluasan/Pengemba
+ngan Usaha)
+flag_cabang an 1 N N Y Proyek Sebagai
+Kantor Cabang Atau
+Bukan (Value : Y =
+Sebagai Kantor
+Cabang, N = Bukan
+Sebagai Kantor
+Cabang)
+npwp_cabang an 15 N N Y NPWP Kantor Cabang
+nama_cabang an 255 N N Y Nama Kantor Cabang
+/ Proyek
+jenis_identitas_pj an 2 N N N Jenis Identitas
+Penanggung Jawab
+Proyek (* Lihat
+Lampiran 4)
+no_identitas_pj an 16 N Y Y No Identitas
+Penanggung Jawab
+Proyek
+nama_pj an 100 N Y Y Nama Penanggung
+Jawab Proyek
+status_proyek an 2 N Y Y Status Proyek(* Lihat
+Lampiran 22)
+Detil Data Lokasi Proyek N Berulang (N) Rows
+id_proyek_lokasi an 25 N Y Y ID / Kode Lokasi
+Proyek
+proyek_daerah_id an 10 N Y Y Daerah/Lokasi
+Investasi(*
+Menggunakan
+Kodefikasi yang
+diterbitkan oleh
+Kemendagri -
+Permendagri No 137
+Tahun 2017 :
+http://www.kemenda
+gri.go.id/media/filem
+anager/2018/02/02/p
+/e/permen_no.137_t
+h_2017.pdf )
+kd_kawasan an 3 N Y Y Kode Kawasan (*
+Lihat Lampiran di
+https://oss.go.id/oss/
+#home/portal/lstKa
+wasan)
+alamat_usaha an 65535 N Y Y Alamat Kegiatan
+Proyek / Usaha
+id_kegiatan an 6 N Y Y Id Kegiatan Usaha
+Berdasarkan RDTR
+Digital
+response_kegiatan an 255 N Y Y Response Kegiatan
+Usaha Berdasarkan
+Validasi Kegiatan
+RDTR Digital
+jenis_kawasan an 2 N Y Y Jenis Kawasan (*
+Lihat Lampiran 16)
+jenis_lokasi an 2 N Y Y Jenis Lokasi Lintas
+Administratif atau
+Tidak (01 : Lintas
+Administratif, 02 :
+Tidak Lintas
+Administratif)
+status_lokasi an 2 N Y Y Status Lokasi(* Lihat
+Lampiran 25)
+Detil Data Koordinat Lokasi Proyek N Berulang (N) Rows
+serial n 11 N Y Y Serial Koordinat
+lat_lng an 255 N Y Y Koordinat Latitude &
+Longitude
+Detil Data Posisi Lokasi Proyek N Berulang (N) Rows
+id_proyek_posisi an 25 N Y Y ID / Kode Posisi
+Proyek
+id_proyek_lokasi an 25 N Y Y ID / Kode Lokasi
+Proyek
+posisi_lokasi an 2 N Y Y Posisi Lokasi (* Lihat
+Lampiran 24)
+Detil Data Produk N Berulang (N) Rows
+id_produk an 25 N Y Y ID / Kode Produk
+id_proyek an 25 N Y Y ID / Kode Proyek
+kbli an 5 N Y Y Kode KBLI (*
+Menggunakan Kode
+KBLI Tahun 2017)
+id_bidang_usaha n 10 N Y Y ID Bidang Usaha
+Berdasarkan
+Kodefikasi Data
+Negatif Investasi
+(DNI) (* Lihat
+Lampiran 15)
+jenis_produksi an 1024 N Y Y Rencana Produksi
+Yang Dihasilkan
+kapasitas n 20,2 N Y Y Kapasitas produksi
+suatu produk
+satuan an 100 N N N Satuan Dari Kapasitas
+Produksi
+merk_dagang an 100 N N N Merk Dagang
+pemegang_haki an 100 N N N Pemegang Hak Cipta
+pemegang_paten an 100 N N N Pemegang Hak Paten
+pi_nomor an 20 N N Y Nomor Pendaftaran
+Penanaman Modal
+Untuk Case Grand
+Father Clause (GFC)
+pi_tanggal an 10 N N Y Tanggal Pendaftaran
+Penanaman Modal
+Untuk Case Grand
+Father Clause (GFC)
+format date : YYYY�MM-DD
+pi_npwp an 16 N N Y NPWP Pendaftaran
+Penanaman Modal
+Untuk Case Grand
+Father Clause (GFC)
+Detil Data Negatif Investasi (DNI) N Berulang (N) Rows
+kd_dni n 10 N Y Y Kodefikasi Data
+Negatif Investasi
+(DNI) (* Lihat
+Lampiran 15)
+Detil Data Checklist N Berulang (N) Rows
+id_proyek an 25 N Y Y ID / Kode Proyek
+id_izin an 25 1 Y Y Merupakan ID
+Pengajuan
+Permohonan
+Perizinan yang di
+Generate Sistem OSS,
+Untuk Pengiriman
+StatusIzin
+kd_izin an 13 N Y Y Kode Izin Sistem
+K/L/D (*
+https://services.oss.g
+o.id/getListIzin)
+kd_daerah an 10 N Y Y Daerah/Lokasi
+Investasi(*
+Menggunakan
+Kodefikasi yang
+diterbitkan oleh
+Kemendagri -
+Permendagri No 137
+Tahun 2017 :
+http://www.kemenda
+gri.go.id/media/filem
+anager/2018/02/02/p
+/e/permen_no.137_t
+h_2017.pdf )
+nama_izin an 255 N Y Y Nama Izin
+instansi an 100 N Y Y Nama Instansi
+id_bidang_spesifik n 19 N Y Y ID Bidang Spesifik
+bidang_spesifik an 255 N Y Y Uraian Bidang
+Spesifik
+id_kewenangan n 19 N Y Y ID Kewenangan
+parameter_kewenangan an 255 N Y Y Paramater
+Kewenangan Zin
+kewenangan an 2 N Y Y 00: Kewenangan
+Pusat
+01: Kewenangan
+Provinsi
+02: Kewenangan
+Kab/Kota
+flag_checklist an 1 N Y Y Flag : Y/N
+Detil Data Persyaratan N Berulang (N) Rows
+id_syarat an 25 N Y Y Id / Kode Persyaratan
+no_dokumen an 50 N Y Y Nomor Dokumen
+Persyaratan
+tgl_dokumen an 8 N Y Y Tanggal Dokumen
+Persyaratan (format
+date : YYYY-MM-DD)
+file_dokumen an 65535 N Y Y Attachment File Izin
+dalam Bentuk File
+PDF/Image Berupa
+Link (* Ukuran File
+Maks: 2MB)
+keterangan an 255 N N N Keterangan
+Dokumen
+Persyaratan
+jenis_id_user_proses an 2 1 Y Y Kode Jenis Identitas
+(* Lihat Lampiran 4)
+no_id_user_proses an 25 1 Y Y No Identitas
+Pemroses NIB
+nama_user_proses an 100 1 Y Y Nama User Pemroses
+NIB
+email_user_proses an 50 1 Y Y Email User Pemroses
+NIB
+hp_user_proses an 25 1 Y Y No HP Pemroses NIB
+alamat_user_proses an 255 1 Y Y Alamat Pemroses NIB
+jns_kelamin_user_proses an 1 1 Y Y Jenis Kelamin
+Pemroses NIB (L :
+Laki-Laki, P :
+Perempuan)
+tempat_lahir_user_proses an 100 1 Y Y Tempat Lahir
+Pemroses NIB
+tgl_lahir_user_proses an 10 1 Y Y Tanggal Lahir User
+Pemroses(format
+date : YYYY-MM-DD)
+daerah_id_user_proses an 10 1 Y Y ID Daerah User
+Pemroses(*
+Menggunakan
+Kodefikasi yang
+diterbitkan oleh
+Kemendagri -
+Permendagri No 137
+Tahun 2017 :
+http://www.kemenda
+gri.go.id/media/docu
+ments/2015/02/25/l/
+a/lampiran_i.pdf )
+rt_rw_user_proses an 10 1 Y Y RT RW Pemroses NIB
+agama_user_proses an 50 1 Y Y Agama Pemroses NIB
+status_perkawinan_user_proses an 50 1 Y Y Status Perkawinan
+Pemroses NIB
+pekerjaan_user_proses an 50 1 Y Y Pekerjaan Pemroses
+NIB
+status_nib an 2 1 Y Y Status Penerbitan NIB
+(* Lihat Lampiran 14)
+tipe_dokumen an 1 1 Y Y Tipe Dokumen
+(9:Original,
+5:Update,
+3:Pencabutan,
+4:Pembatalan)
+Return
+Parameters Type Length Repeat Description
+status an 1 1 Y Y 1: TRUE
+2: FALSE
+keterangan an 255 1 N N Keterangan
+Server Sistem K/L/D Client Sistem OSS
+Contoh Format JSON (Parameter):
+{
+"dataNIB": {
+"nib": "",
+"tgl_pengajuan_nib": "",
+"tgl_terbit_nib": "",
+"tgl_perubahan_nib": "",
+"oss_id": "",
+"id_izin": "",
+"kd_izin": "",
+"kd_daerah": "",
+"kewenangan": "",
+"jenis_pelaku_usaha": "",
+"no_npp": "",
+"no_va": "",
+"no_wlkp": "",
+"flag_perusahaan": "",
+"flag_ekspor": "",
+"flag_impor": "",
+"jenis_api": "",
+"gabung_negara": "",
+"negara_pma_dominan": "",
+"total_pma": "",
+"nilai_pma_dominan": "",
+"nilai_pmdn": "",
+"persen_pma": "",
+"persen_pmdn": "",
+"kd_kawasan": "",
+"jenis_kawasan": "",
+"versi_pia": "",
+"jangka_waktu": "",
+"status_badan_hukum": "",
+"status_penanaman_modal": "",
+"npwp_perseroan": "",
+"nama_perseroan": "",
+"nama_singkatan": "",
+"jenis_perseroan": "",
+"status_perseroan": "",
+"alamat_perseroan": "",
+"rt_rw_perseroan": "",
+"kelurahan_perseroan": "",
+"perseroan_daerah_id": "",
+"kode_pos_perseroan": "",
+"nomor_telpon_perseroan": "",
+"dalam_bentuk_uang": "",
+"dalam_bentuk_lain": "",
+"total_modal_dasar": "",
+"total_modal_ditempatkan": "",
+"pemegang_saham": [ {
+"jenis_pemegang_saham": "",
+"flag_asing": "",
+"total_modal_pemegang": "",
+"jabatan_pemegang_saham": "",
+"nama_pemegang_saham": "",
+"jns_identitas_pemegang_saham": "",
+"no_identitas_pemegang_saham": "",
+"valid_identitas_pemegang_saham": "",
+"negara_asal_pemegang_saham": "",
+"pengendali_pemegang_saham": "",
+"npwp_pemegang_saham": "",
+"alamat_pemegang_saham": "",
+"fax_pemegang_saham": "",
+"email_pemegang_saham": "",
+"flag_pajak_pemegang_saham": "",
+"ket_pajak_pemegang_saham": ""
+}
+],
+"penanggung_jwb": [ {
+"flag_asing": "",
+"jns_identitas_penanggung_jwb": "",
+"no_identitas_penanggung_jwb": "",
+"nama_penanggung_jwb": "",
+"jabatan_penanggung_jwb": " ",
+"kebangsaan_penanggung_jwb": "",
+"negara_asal_penanggung_jwb": "",
+"npwp_penanggung_jwb": "",
+"alamat_penanggung_jwb": "",
+"jalan_penanggung_jwb": "",
+"blok_penanggung_jwb": "",
+"no_penanggung_jwb": "",
+"rt_rw_penanggung_jwb": "",
+"kelurahan_penanggung_jwb": "",
+"daerah_id_penanggung_jwb": "",
+"kode_pos_penanggung_jwb": "",
+"no_telp_penanggung_jwb": "",
+"no_hp_penanggung_jwb": "",
+"no_fax_penanggung_jwb": "",
+"email_penanggung_jwb": "",
+"flag_pajak_penanggung_jwb": "",
+"ket_pajak_penanggung_jwb": ""
+}
+],
+"no_pengesahan": "",
+"tgl_pengesahan": "",
+"no_akta_lama": "",
+"tgl_akta_lama": "",
+"no_pengesahan_lama": "",
+"tgl_pengesahan_lama": "",
+"legalitas": [ {
+"jenis_legal": "",
+"no_legal": "",
+"tgl_legal": "",
+"alamat_notaris": "",
+"nama_notaris": "",
+"telepon_notaris": ""
+}
+],
+"data_rptka": {
+"jenis_rptka": "",
+"no_rptka": "",
+"rptka_awal": "",
+"rptka_akhir": "",
+"rptka_gaji": "",
+"jumlah_tka_rptka": "",
+"jangka_penggunaan_waktu": "",
+"jangka_waktu_permohonan_rptka": "",
+"rptka_jabatan": [ {
+"id_jabatan": "",
+"jabatan": "",
+"jumlah": "",
+"tgl_mulai": "",
+"tgl_selesai": "",
+"keterangan": "",
+"rptka_tki_pendamping": [
+{
+"id_jabatan": "",
+"id_pendamping": "",
+"nama": "",
+"nik": "",
+"jabatan": "",
+"hp": "",
+"email": "",
+"foto": "",
+"pendidikan_min": "",
+"sertifikat": "",
+"pengalaman_kerja": "",
+"keterangan": ""
+} ] }
+],
+"rptka_negara": [ {
+"id_negara": "",
+"jumlah": ""
+}
+],
+"rptka_lokasi": [ {
+"lokasi_id": "",
+"jumlah": ""
+} ]
+},
+"data_proyek": [ {
+"id_proyek": "",
+"uraian_usaha": "",
+"jumlah_tki_l": "",
+"jumlah_tki_p": "",
+"jumlah_tka_l": "",
+"jumlah_tka_p": "",
+"kbli": "",
+"sektor": "",
+"memiliki_menguasai": "",
+"jenis_lokasi": "",
+"status_tanah": "",
+"luas_tanah": "",
+"satuan_luas_tanah": "",
+"pembelian_pematang_tanah": "",
+"bangunan_gedung": "",
+"mesin_peralatan": "",
+"mesin_peralatan_usd": "",
+"investasi_lain": "",
+"sub_jumlah": "",
+"modal_kerja": "",
+"jumlah_investasi": "",
+"tanggal_kurs": "",
+"nilai_kurs": "",
+"kd_kawasan": "",
+"jawab_lokasi_b": "",
+"jawab_lokasi_c": "",
+"jawab_lokasi_d": "",
+"jawab_lokasi_e": "",
+"jawab_lokasi_f": "",
+"jawab_lokasi_g": "",
+"flag_perluasan": "",
+"flag_cabang": "",
+"npwp_cabang": "",
+"nama_cabang": "",
+"jenis_identitas_pj": "",
+"no_identitas_pj": "",
+"nama_pj": "",
+"status_proyek": "",
+"data_lokasi_proyek": [ {
+"id_proyek_lokasi": "",
+"proyek_daerah_id": "",
+"kd_kawasan": "",
+"alamat_usaha": "",
+"id_kegiatan": "",
+"response_kegiatan": "",
+"jenis_kawasan": "",
+"jenis_lokasi": "",
+"status_lokasi": "",
+"data_lokasi_proyek": [ {
+"serial": "",
+"lat_lng": ""
+}
+],
+"data_posisi_proyek": [ {
+"id_proyek_posisi": "",
+"id_proyek_lokasi": "",
+"posisi_lokasi": ""
+} ] }
+],
+"data_proyek_produk": [ {
+"id_produk": "",
+"id_proyek": "",
+"kbli": "",
+"id_bidang_usaha": "",
+"jenis_produksi": "",
+"kapasitas": "",
+"satuan": "",
+"merk_dagang": "",
+"pemegang_haki": "",
+"pemegang_paten": "",
+"pi_nomor": "",
+"pi_tanggal": "",
+"pi_npwp": ""
+} ] }
+],
+"data_dni": [ {
+"kd_dni": ""
+}
+],
+"data_checklist": [ {
+"id_proyek": "",
+"id_izin": "",
+"kd_izin": "",
+"kd_daerah": "",
+"nama_izin": "",
+"instansi": "",
+"id_bidang_spesifik": "",
+"bidang_spesifik": "",
+"id_kewenangan": "",
+"parameter_kewenangan": "",
+"kewenangan": "",
+"flag_checklist": "",
+"data_persyaratan": [ {
+"id_syarat": "",
+"no_dokumen": "",
+"tgl_dokumen": "",
+"file_dokumen": "",
+"keterangan": ""
+} ] }
+],
+"jenis_id_user_proses": "",
+"no_id_user_proses": "",
+Method Name receiveLicense Author Tim Teknis OSS
+Method Type POST
+Method Header OSS-API-KEY : SecurityKey Dari Sistem OSS;Content-Type:application/json
+Description Pengiriman Data Izin Final dari Sistem K/L/D ke Sistem OSS
+Input Parameters
+Parameters Type Length Repeat Description
+nib an 13 1 Nomor Induk Berusaha
+id_proyek an 25 1 ID / Kode Proyek
+"nama_user_proses": "",
+"email_user_proses": "",
+"hp_user_proses": "",
+"alamat_user_proses": "",
+"jns_kelamin_user_proses": "",
+"tempat_lahir_user_proses": "",
+"tgl_lahir_user_proses": "",
+"daerah_id_user_proses": "",
+"rt_rw_user_proses": "",
+"agama_user_proses": "",
+"status_perkawinan_user_proses": "",
+"pekerjaan_user_proses": "",
+"status_nib": "",
+"tipe_dokumen ": ""
+} }
+Contoh Format JSON (Return):
+{
+"responreceiveNIB": {
+"status": "",
+"keterangan": ""
+} }
+oss_id an 25 1 Oss Id adalah ID yang di Generate
+Sistem OSS dan Dikirimkan ke K/L/D
+Bersama Permohonan Nomor Induk
+Berusaha
+id_izin an 25 1 Merupakan ID Pengajuan Permohonan
+Perizinan yang di Generate Sistem
+OSS, Untuk Pengiriman StatusIzin
+kd_izin an 12 1 Kode Izin Sistem K/L/D (* Lihat
+Lampiran 8)
+kd_daerah an 10 1 Daerah/Lokasi Investasi(*
+Menggunakan Kodefikasi yang
+diterbitkan oleh Kemendagri -
+Permendagri No 137 Tahun 2017 :
+http://www.kemendagri.go.id/media/
+filemanager/2018/02/02/p/e/permen
+_no.137_th_2017.pdf )
+nomor_izin an 50 1 Nomor Izin Final
+tgl_terbit_izin an 10 1 Tanggal Izin Final (format date : YYYY�MM-DD)
+tgl_berlaku_izin an 10 1 Tanggal Berlaku Izin Final (format date
+: YYYY-MM-DD)
+nama_ttd an 50 1 Nama Penandatangan Izin
+nip_ttd an 25 1 Nip Penandatangan Izin
+jabatan_ttd an 50 1 Jabatan Penandatangan Izin
+status_izin an 2 1 Status Izin di Sistem OSS (* Lihat
+Lampiran 10)
+file_izin an 65535 1 Attachment File Izin dalam Bentuk File
+PDF Berupa Link (* Ukuran File Maks:
+2MB) ataupun dalam bentuk base64
+dengan format
+(data:image/jpeg;base64,STRING
+ENCODE IMAGE)
+keterangan an 65535 1 Keterangan Status Izin
+Detil Data PNBP N Berulang (N) Rows
+kd_akun an 20 N Kode Akun PNBP dari Simponi
+Kemenkeu
+kd_penerimaan an 20 N Kode Jenis Penerimaan dari Simponi
+Kemenkeu
+nominal n 20,0 N Jumlah Nilai PNBP (Default Valuta :
+IDR)
+Return
+Parameters Type Length Repeat Description
+kode an 3 1 Kode Respon (*Lihat Lampiran 9)
+keterangan an 255 1 Keterangan Respon
+Server Sistem OSS Client Sistem K/L/D
+Contoh Format JSON (Parameter):
+{
+"IZINFINAL": {
+"nib": "",
+"id_proyek": "",
+"oss_id": "",
+"id_izin":"",
+"kd_izin": "",
+"kd_daerah":"",
+"nomor_izin": "",
+"tgl_terbit_izin": "",
+"tgl_berlaku_izin": "",
+"nama_ttd": "",
+"nip_ttd": "",
+"jabatan_ttd": "",
+"status_izin": "",
+"file_izin": "",
+"keterangan": "",
+"data_pnbp": [
+{
+"kd_akun": "",
+"kd_penerimaan": "",
+"nominal": ""
+} ] } }
+Contoh Format JSON(Return):
+{
+"responreceiveLicense": {
+"kode": "",
+"keterangan": "",
+} }
+Method Name receiveLicenseStatus Author Tim Teknis OSS
+Method Type POST
+Method Header OSS-API-KEY : SecurityKey Dari Sistem OSS;Content-Type:application/json
+Description Pengiriman Data Status Izin dari Sistem K/L/D ke Sistem OSS
+Input Parameters
+Parameters Type Length Repeat Description
+nib an 13 1 Nomor Induk Berusaha
+id_proyek an 25 1 ID / Kode Proyek
+oss_id an 25 1 Oss Id adalah ID yang di Generate
+Sistem OSS dan Dikirimkan ke K/L/D
+Bersama Pengajuan Perizinan
+id_izin an 25 1 Merupakan ID Pengajuan Permohonan
+Perizinan yang di Generate Sistem
+OSS, Untuk Pengiriman StatusIzin
+kd_izin an 12 1 Kode Izin Sistem K/L/D (* Lihat
+Lampiran 8)
+kd_instansi an 3 1 Kode Instansi
+kd_status an 2 1 Kode Status Perizinan (* Lihat
+Lampiran 10)
+tgl_status an 18 1 Tanggal Proses Status Izin (format date
+: YYYY-MM-DD HH:II:SS)
+nip_status an 50 1 Nip Status Izin
+nama_status an 50 1 Nama Status Izin
+keterangan an 65535 1 Keterangan
+Return
+Parameters Type Length Repeat Description
+kode an 3 1 Kode Respon (*Lihat Lampiran 9)
+keterangan an 255 1 Keterangan Respon
+Server Sistem OSS Client Sistem K/L/D
+Contoh Format JSON (Parameter):
+{
+"IZINSTATUS": {
+"nib": "",
+"id_proyek": "",
+"oss_id": "",
+"id_izin": "",
+"kd_izin": "",
+"kd_instansi": "",
+"kd_status": "",
+"tgl_status": "",
+"nip_status": "",
+"nama_status": "",
+"keterangan": ""
+} }
+Contoh Format JSON(Return):
+{
+"responreceiveLicenseStatus": {
+"kode": "",
+"keterangan": ""
+} }
+Method Name inqueryNIB Author Tim Teknis OSS
+Method Type POST
+Method Header OSS-API-KEY : SecurityKey Dari Sistem OSS;Content-Type:application/json
+Description Inquery Data Nomor Induk Berusaha (NIB) di Sistem OSS
+Input Parameters
+Parameters Type Length Repeat Description
+nib an 13 1 Nomor Induk Berusaha
+Return
+Parameters Type Length Repeat Description
+nib an 13 1 Nomor Induk Berusaha
+tgl_pengajuan_nib an 10 1 Tanggal Pengajuan NIB format
+date : YYYY-MM-DD)
+tgl_terbit_nib an 10 1 Tanggal Penerbitan NIB format
+date : YYYY-MM-DD)
+tgl_perubahan_nib an 10 1 Tanggal Perubahan NIB format
+date : YYYY-MM-DD)
+oss_id an 25 1 Oss Id adalah ID yang di Generate
+Sistem OSS dan Dikirimkan ke
+K/L/D Bersama Permohonan
+Nomor Induk Berusaha
+id_izin an 25 1 Merupakan ID Pengajuan
+Permohonan Perizinan yang di
+Generate Sistem OSS, Untuk
+Pengiriman StatusIzin
+kd_izin an 12 1 Kode Izin Sistem K/L/D (* Lihat
+Lampiran 8)
+kd_daerah an 10 N Daerah/Lokasi Investasi(*
+Menggunakan Kodefikasi yang
+diterbitkan oleh Kemendagri -
+Permendagri No 137 Tahun 2017 :
+http://www.kemendagri.go.id/me
+dia/filemanager/2018/02/02/p/e/
+permen_no.137_th_2017.pdf )
+kewenangan an 2 N 00: Kewenangan Pusat
+01: Kewenangan Provinsi
+02: Kewenangan Kab/Kota
+jenis_pelaku_usaha an 2 1 Jenis Pelaku Usaha (* Lihat
+Lampiran 18)
+no_npp n 20 1 Nomor Pendaftaraan Perusahaan
+Untuk BPJS Ketenagakerjaan
+no_va an 20 1 Nomor Pendaftaraan Perusahaan
+Untuk BPJS Kesehatan
+no_wlkp an 23 1 Nomor Wajib Lapor
+Ketenagakerjaan Perusahaan
+flag_perusahaan an 1 1 Flag :Y = Untuk Perusahaan Baru,N
+= Untuk Perusahaan Lama / Exist
+flag_ekspor an 1 1 Y : Melakukan Aktifikas Ekspor, N :
+Tidak Melakukan Aktifitas Ekspor
+flag_impor an 1 1 Y : Melakukan Aktifikas Impor, N :
+Tidak Melakukan Aktifitas Impor
+jenis_api an 2 1 Jenis Angka Pengenal Impor (API)
+(* Lihat Lampiran 3)
+gabung_negara an 1 1 PMA Merupakan Gabungan
+Negara Atau Tidak (* Y:Gabungan
+Negara,N: Bukan Gabungan
+Negara)
+negara_pma_dominan an 2 1 Negara Asing Yang Memiliki Modal
+Mayoritas
+total_pma n 20,2 1 Total Modal PMA
+nilai_pma_dominan n 20,2 1 Nilai Modal PMA Dominan
+nilai_pmdn n 20,2 1 Nilai Modal PMDN
+persen_pma n 9,2 1 Persentase Modal PMA
+persen_pmdn n 9,2 1 Persentase Modal PMDN
+kd_kawasan n 5 1 Kode Kawasan (* Lihat Lampiran
+di
+https://oss.go.id/oss/#home/port
+al/lstKawasan)
+jenis_kawasan an 2 1 Jenis Kawasan (* Lihat Lampiran
+21)
+versi_pia an 5 1 Versi PIA OSS
+jangka_waktu an 10 1 Jangka Waktu (format date : YYYY�MM-DD)
+status_badan_hukum an 2 1 Status Badan Hukum (* Lihat
+Lampiran 12)
+status_penanaman_modal an 2 1 Status Penanaman Modal (* Lihat
+Lampiran 1)
+npwp_perseroan an 15 1 NPWP Perseroan
+nama_perseroan an 255 1 Nama Perseroan
+nama_singkatan an 255 1 Nama Singkatan Perseroan
+jenis_perseroan an 2 1 Jenis Perseroan (* Lihat Lampiran
+2)
+status_perseroan an 1 1 Status Perseroan (*Y: Terbuka,
+N:Tertutup)
+alamat_perseroan an 255 1 Alamat Perseroan
+rt_rw_perseroan an 7 1 Rt Rw Perseroan
+kelurahan_perseroan an 50 1 Kelurahan Perseroan
+perseroan_daerah_id an 10 1 ID Daerah Perseroan (*
+Menggunakan Kodefikasi yang
+diterbitkan oleh Kemendagri -
+Permendagri No 137 Tahun 2017 :
+http://www.kemendagri.go.id/me
+dia/filemanager/2018/02/02/p/e/
+permen_no.137_th_2017.pdf)
+kode_pos_perseroan an 5 1 Kode Pos Perseroan
+nomor_telpon_perseroan an 20 1 Nomor Telepon Perseroan
+dalam_bentuk_uang n 20,0 1 Modal Dalam Bentuk Uang (Valuta
+: IDR)
+dalam_bentuk_lain an 50000 1 Modal Dalam Bentuk Lainnya
+total_modal_dasar n 20,0 1 Total Modal Dasar (Valuta : IDR)
+total_modal_ditempatkan n 20,0 1 Total Modal Ditempatkan (Valuta :
+IDR)
+Detil Pemegang Saham N Berulang (N) Rows
+jenis_pemegang_saham n 2 N Jenis Pemegang Saham (* Lihat
+Lampiran 13)
+flag_asing n 1 N Asal Pemegang Saham dari Dalam
+Negeri / Luar Negeri
+total_modal_pemegang n 20,0 N Total Modal Pemegang Saham
+(Valuta : IDR)
+jabatan_pemegang_saham an 50 N Jabatan Pemegang Saham
+nama_pemegang_saham an 500 N Nama Pemegang Saham
+jns_identitas_pemegang_saham an 2 N Jenis Identitas Pemegang Saham (*
+Lihat Lampiran 4)
+no_identitas_pemegang_saham an 100 N Nomor Identitas Pemegang Saham
+valid_identitas_pemegang_saham an 10 N Valid / Masa Berlaku Pemegang
+Saham (Format Date : YYYY-MM�DD)
+pengendali_pemegang_saham an 50 N Nama Pengendali Pemegang
+Saham
+npwp_pemegang_saham an 15 N NPWP Pemegang Saham
+alamat_pemegang_saham an 1024 N Alamat Pemegang Saham
+fax_pemegang_saham an 25 N Fax Pemegang Saham
+email_pemegang_saham an 100 N Email Pemegang Saham
+flag_pajak_pemegang_saham an 2 N Flag Validasi Pajak Pemegang
+Saham (* Lihat Lampiran 19)
+ket_pajak_pemegang_saham an 255 N Keterangan Validasi Pajak
+Pemegang Saham
+Detil Penanggung Jawab N Berulang (N) Rows
+flag_asing n 1 N Asal Pemegang Saham dari Dalam
+Negeri / Luar Negeri (Value : Y =
+asing, N = Bukan Asing)
+jns_identitas_penanggung_jwb an 2 N Jenis Nik Penganggung Jawab (*
+Lihat Lampiran 4)
+no_identitas_penanggung_jwb an 100 N Nomor Identitas Penanggung
+Jawab
+nama_penanggung_jwb an 500 N Nama Penganggung Jawab
+jabatan_penanggung_jwb an 250 N Jabatan Penanggung Jawab
+kebangsaan_penanggung_jwb an 2 N Kebangsaan Penanggung Jawab (*
+Lihat Lampiran 6)
+negara_asal_penanggung_jwb an 2 N Negara Asal Penanggung Jawab (*
+Sumber Kodefikasi Negara
+Mengikuti Standar Unedifact :
+http://www.unece.org/cefact/loco
+de/service/location )
+npwp_penanggung_jwb an 15 N NPWP Penanggung Jawab
+alamat_penanggung_jwb an 1024 N Alamat Penanggung Jawab
+jalan_penanggung_jwb an 50 N Alamat Jalan Penanggung Jawab
+blok_penanggung_jwb an 10 N Alamat Blok Penanggung Jawab
+no_penanggung_jwb an 10 N Alamat Nomor Penanggung Jawab
+rt_rw_penanggung_jwb an 255 N RT RW Penanggung Jawab
+kelurahan_penanggung_jwb an 255 N Kelurahan Penanggung Jawab
+daerah_id_penanggung_jwb an 10 N ID Daerah Penanggung Jawab (*
+Menggunakan Kodefikasi yang
+diterbitkan oleh Kemendagri -
+Permendagri No 137 Tahun 2017 :
+http://www.kemendagri.go.id/me
+dia/filemanager/2018/02/02/p/e/
+permen_no.137_th_2017.pdf)
+kode_pos_penanggung_jwb an 5 N Kode Pos Penanggung Jawab
+no_telp_penanggung_jwb an 50 N Nomor Telepon Penanggung
+Jawab
+no_hp_penanggung_jwb an 50 N Nomor Handphone Penanggung
+Jawab
+no_fax_penanggung_jwb an 50 N Nomor Fax Penanggung Jawab
+email_penanggung_jwb an 100 N Email Penanggung Jawab
+flag_pajak_penanggung_jwb an 2 N Flag Validasi Pajak Penanggung
+Jawab (* Lihat Lampiran 19)
+ket_pajak_penanggung_jwb an 255 N Keterangan Validasi Pajak
+Penanggung Jawab
+no_pengesahan an 100 1 Nomor Pengesahan Akta Dari
+Kumham
+tgl_pengesahan an 10 1 Tanggal Pengesahan Akta Dari
+Kumham (format date : YYYY�MM-DD)
+no_akta_lama an 100 1 Nomor Akta Lama Sebelum
+Perubahan
+tgl_akta_lama an 10 1 Tanggal Akta Lama Sebelum
+Perubahan (format date : YYYY�MM-DD)
+no_pengesahan_lama an 100 1 Nomor Pengesahan Akta Lama
+Sebelum Perubahan Dari Kumham
+tgl_pengesahan_lama an 10 1 Tanggal Pengesahan Akta Lama
+Sebelum Perubahan Dari Kumham
+(format date : YYYY-MM-DD)
+Detil Legalitas N Berulang (N) Rows
+jenis_legal an 2 N Jenis Legal Perusahaan (* Lihat
+Lampiran 7)
+no_legal an 100 N Nomor Legal Perusahaan
+tgl_legal an 10 N Tanggal Legal Perusahaan (format
+date : YYYY-MM-DD)
+nama_notaris an 100 N NamaNotaris
+alamat_notaris an 255 N AlamatNotaris
+telepon_notaris an 100 N Telepon Notaris
+Data RPTKA 1 Berulang (1) Rows
+jenis_rptka an 2 1 Jenis Flag RPTKA *( 01 : Baru, 02:
+Perubahan)
+no_rptka an 20 1 No Bacode RPTKA
+rptka_awal an 10 1 Masa Berlaku Dari Tanggal(format
+date : YYYY-MM-DD)
+rptka_akhir an 10 1 Masa Berlaku Sampai
+Tanggal(format date : YYYY-MM�DD)
+rptka_gaji n 20,2 1 Gaji Tenaga Asing
+jumlah_tka_rptka n 11 1 Jumlah Tenaga Kerja Asing (TKA)
+dalam Rencana Penggunaan
+Tenaga Kerja Asing (RPTKA)
+jangka_penggunaan_waktu an 10 1 Jangka Waktu Penggunaan Tenaga
+Kerja Asing (TKA) dalam Izin
+Rencana Penggunaan Tenaga Kerja
+Asing (RPTKA) (format date : YYYY�MM-DD)
+jangka_waktu_permohonan_rptka n 1 1 Jangka Waktu Permohonan RPTKA
+(dalam hitungan bulan)
+Detil RPTKA Jabatan N Berulang (N) Rows
+id_jabatan n 11 N (* Sumber Kodefikasi ID Jabatan:
+http://oss.ekon.go.id/web2/#ho
+me/portal/halaman/AGsEZQIxD
+G0FcAY7U2BUdAM- /U2FTaA== )
+jabatan an 255 N Nama Jabatan
+jumlah n 11 N Jumlah Orang Yang Memiliki
+Jabatan
+tgl_mulai an 10 N Tanggal Mulai Jabatan format date
+: YYYY-MM-DD)
+tgl_selesai an 10 N Tanggal Selesai Jabatan format
+date : YYYY-MM-DD)
+keterangan an 255 N Keterangan
+Detil RPTKA Pendamping N Berulang (N) Rows
+id_jabatan n 10 N Id Jabatan
+id_pendamping n 10 N Id TKI Pendamping
+nama an 100 N Nama TKI Pendamping
+nik an 20 N Nomor NIK TKI Pendamping
+jabatan an 255 N Nama Jabatan TKI Pendamping
+hp an 25 N Nomor HP TKI Pendamping
+email an 100 N Email TKI Pendampiag
+foto an 65535 N Foto TKI Pendamping Attachment
+File dalam Bentukbentuk base64
+dengan format
+(data:image/jpeg;base64,STRING
+ENCODE IMAGE)
+pendidikan_min an 50 N Tingkat Pendidikan Minimal TKI
+Pendamping
+sertifikat an 255 N Sertifikat Kompetensi TKI
+Pendamping
+pengalaman_kerja n 11 N Pengalaman Kerja TKI Pendamping
+(dalam tahun)
+keterangan an 255 N Keterangan
+Detil RPTKA Negara N Berulang (N) Rows
+id_negara an 2 N Negara Asal Tenaga Kerja Asing(*
+Sumber Kodefikasi Negara
+Mengikuti Standar Unedifact :
+http://www.unece.org/cefact/loco
+de/service/location )
+jumlah n 11 N Jumlah Tenaga Kerja Asing (TKA)
+dalam Rencana Penggunaan
+Tenaga Kerja Asing (RPTKA)
+Detil RPTKA Lokasi N Berulang (N) Rows
+lokasi_id an 10 N ID Daerah Penanggung Jawab (*
+Menggunakan Kodefikasi yang
+diterbitkan oleh Kemendagri -
+Permendagri No 137 Tahun 2017 :
+http://www.kemendagri.go.id/me
+dia/documents/2015/02/25/l/a/la
+mpiran_i.pdf )
+jumlah n 11 N Jumlah Tenaga Kerja Asing (TKA)
+dalam Rencana Penggunaan
+Tenaga Kerja Asing (RPTKA)
+Detil Data Proyek N Berulang (N) Rows
+id_proyek an 25 N ID / Kode Proyek
+uraian_usaha an 25 N Uraian Usaha Proyek
+jumlah_tki_l n 10 N Jumlah Tenaga Kerja Indonesia
+(TKI) Laki -Laki
+jumlah_tki_p n 10 N Jumlah Tenaga Kerja Indonesia
+(TKI) Perempuan
+jumlah_tka_l n 10 N Jumlah Tenaga Kerja Asing (TKA)
+Laki -Laki
+jumlah_tka_p n 10 N Jumlah Tenaga Kerja Asing (TKA)
+Perempuan
+kbli an 5 N Kode KBLI (* Menggunakan Kode
+KBLI Tahun 2017)
+sektor an 3 N Sektor Usaha Berdasarkan KBLI (*
+Lihat Lampiran 20)
+memiliki_menguasai an 1 N Sudah Memiliki atar Menguasai
+Lahan (Value : Y = Sudah Memiliki
+atau Menguasai Lahan, N = Belum
+Memiliki atau Menguasai Lahan)
+jenis_lokasi an 2 N Lokasi Berada dalam Lintas
+Administratif (Value : Y = Berada
+Dalam Lintas Administrasi, N =
+Bukan Berada Dalam Lintas
+Administrasi)
+status_tanah an 2 N Status Kepemilikan Tanah (* Lihat
+Lampiran 5)
+luas_tanah n 10 N Luas Bidang tanah
+satuan_luas_tanah an 2 N Satuan Luas Tanah (*Lihat
+Lampiran 17)
+pembelian_pematangan_tanah n 19 N Nilai Pembelian Pematang Tanah
+(Valuta:IDR)
+bangunan_gedung n 19 N Nilai Bangunan Gedung
+(Valuta:IDR)
+mesin_peralatan n 19 N Nilai Mesin Peralatan (Valuta:IDR)
+mesin_peralatan_usd n 19 N Nilai Mesin Peralatan dalam USD
+investasi_lain n 19 N Investasi Lainnya
+sub_jumlah n 19 N Jumlah Asset(Valuta:IDR)
+modal_kerja n 19 N Nilai Modal Kerja (Valuta:IDR)
+jumlah_investasi n 19 N Nilai Jumlah Investasi (Valuta:IDR)
+tanggal_kurs an 10 N Tanggal Kurs (format date : YYYY�MM-DD)
+nilai_kurs n 19 N Nilai Kurs
+kd_kawasan n 11 N Kode Kawasan (* Lihat Lampiran
+di
+https://oss.go.id/oss/#home/port
+al/lstKawasan)
+jawab_lokasi_b an 1 N kuisioner Lokasi Berdasarkan PP 24
+Tahun 2018 Pasal 33 Ayat 1 Point
+B
+jawab_lokasi_c an 1 N kuisioner Lokasi Berdasarkan PP 24
+Tahun 2018 Pasal 33 Ayat 1 Point
+C
+jawab_lokasi_d an 1 N kuisioner Lokasi Berdasarkan PP 24
+Tahun 2018 Pasal 33 Ayat 1 Point
+D
+jawab_lokasi_e an 1 N kuisioner Lokasi Berdasarkan PP 24
+Tahun 2018 Pasal 33 Ayat 1 Point
+E
+jawab_lokasi_f an 1 N kuisioner Lokasi Berdasarkan PP 24
+Tahun 2018 Pasal 33 Ayat 1 Point
+F
+jawab_lokasi_g an 1 N kuisioner Lokasi Berdasarkan PP 24
+Tahun 2018 Pasal 33 Ayat 1 Point
+G
+flag_perluasan an 1 N Proyek Merupakan
+Perluasan/Pengembangan Usaha
+Atau Bukan (Value : Y = Proses
+Perluasan/Pengembangan Usaha,
+N = Bukan Proses
+Perluasan/Pengembangan Usaha)
+flag_cabang an 1 N Proyek Sebagai Kantor Cabang
+Atau Bukan (Value : Y = Sebagai
+Kantor Cabang, N = Bukan Sebagai
+Kantor Cabang)
+npwp_cabang an 15 N NPWP Kantor Cabang
+nama_cabang an 255 N Nama Kantor Cabang / Proyek
+jenis_identitas_pj an 2 N Jenis Identitas Penanggung Jawab
+Proyek (* Lihat Lampiran 4)
+no_identitas_pj an 16 N No Identitas Penanggung Jawab
+Proyek
+nama_pj an 100 N Nama Penanggung Jawab Proyek
+status_proyek an 2 N Status Proyek(* Lihat Lampiran 22)
+Detil Data Lokasi Proyek N Berulang (N) Rows
+id_proyek_lokasi an 25 N ID / Kode Lokasi Proyek
+proyek_daerah_id an 10 N Daerah/Lokasi Investasi(*
+Menggunakan Kodefikasi yang
+diterbitkan oleh Kemendagri -
+Permendagri No 137 Tahun 2017 :
+http://www.kemendagri.go.id/me
+dia/filemanager/2018/02/02/p/e/
+permen_no.137_th_2017.pdf)
+kd_kawasan an 3 N Kode Kawasan (* Lihat Lampiran
+di
+https://oss.go.id/oss/#home/port
+al/lstKawasan)
+alamat_usaha an 65535 N Alamat Kegiatan Proyek / Usaha
+id_kegiatan an 6 N Id Kegiatan Usaha Berdasarkan
+RDTR Digital
+response_kegiatan an 255 N Response Kegiatan Usaha
+Berdasarkan Validasi Kegiatan
+RDTR Digital
+jenis_kawasan an 2 N Jenis Kawasan (* Lihat Lampiran
+16)
+jenis_lokasi an 2 N Jenis Lokasi Lintas Administratif
+atau Tidak (01 : Lintas
+Administratif, 02 : Tidak Lintas
+Administratif)
+status_lokasi an 2 N Status Lokasi(* Lihat Lampiran 25)
+Detil Data Koordinat Lokasi Proyek N Berulang (N) Rows
+serial n 11 N Serial Koordinat
+lat_lng an 255 N Koordinat Latitude & Longitude
+Detil Data Posisi Lokasi Proyek N Berulang (N) Rows
+id_proyek_posisi an 25 N ID / Kode Posisi Proyek
+id_proyek_lokasi an 25 N ID / Kode Lokasi Proyek
+posisi_lokasi an 2 N Posisi Lokasi (* Lihat Lampiran 24)
+Detil Data Produk N Berulang (N) Rows
+id_produk an 25 N ID / Kode Produk
+id_proyek an 25 N ID / Kode Proyek
+kbli an 5 N Kode KBLI (* Menggunakan Kode
+KBLI Tahun 2017)
+id_bidang_usaha n 10 N ID Bidang Usaha Berdasarkan
+Kodefikasi Data Negatif Investasi
+(DNI) (* Lihat Lampiran 15)
+jenis_produksi an 1024 N Rencana Produksi Yang Dihasilkan
+kapasitas n 20,2 N Kapasitas produksi suatu produk
+satuan an 100 N Satuan Dari Kapasitas Produksi
+merk_dagang an 100 N Merk Dagang
+pemegang_haki an 100 N Pemegang Hak Cipta
+pemegang_paten an 100 N Pemegang Hak Paten
+pi_nomor an 20 N Nomor Pendaftaran Penanaman
+Modal Untuk Case Grand Father
+Clause (GFC)
+pi_tanggal an 10 N Tanggal Pendaftaran Penanaman
+Modal Untuk Case Grand Father
+Clause (GFC) format date : YYYY�MM-DD
+pi_npwp an 16 N NPWP Pendaftaran Penanaman
+Modal Untuk Case Grand Father
+Clause (GFC)
+Detil Data Negatif Investasi (DNI) N Berulang (N) Rows
+kd_dni n 10 N Kodefikasi Data Negatif Investasi
+(DNI) (* Lihat Lampiran 15)
+Detil Data Checklist N Berulang (N) Rows
+id_proyek an 25 N ID / Kode Proyek
+id_izin an 25 1 Merupakan ID Pengajuan
+Permohonan Perizinan yang di
+Generate Sistem OSS, Untuk
+Pengiriman StatusIzin
+kd_izin an 13 N Kode Izin Sistem K/L/D (*
+https://services.oss.go.id/getListIzi
+n)
+kd_daerah an 10 N Daerah/Lokasi Investasi(*
+Menggunakan Kodefikasi yang
+diterbitkan oleh Kemendagri -
+Permendagri No 137 Tahun 2017 :
+http://www.kemendagri.go.id/me
+dia/filemanager/2018/02/02/p/e/
+permen_no.137_th_2017.pdf )
+nama_izin an 255 N Nama Izin
+no_izin an 50 N Nomor Izin
+tgl_izin an 10 N Tanggal Izin
+(format date : YYYY-MM-DD)
+instansi an 100 N Nama Instansi
+id_bidang_spesifik n 19 N ID Bidang Spesifik
+bidang_spesifik an 255 N Uraian Bidang Spesifik
+id_kewenangan n 19 N ID Kewenangan
+parameter_kewenangan an 255 N Paramater Kewenangan Zin
+kewenangan an 2 N 00: Kewenangan Pusat
+01: Kewenangan Provinsi
+02: Kewenangan Kab/Kota
+file_izin an 65535 N Attachment File Izin dalam Bentuk
+File PDF/Image Berupa Link (*
+Ukuran File Maks: 2MB)
+flag_checklist an 1 N Flag : Y/N
+Detil Data Persyaratan N Berulang (N) Rows
+id_syarat an 25 N Id / Kode Persyaratan
+no_dokumen an 50 N Nomor Dokumen Persyaratan
+tgl_dokumen an 8 N Tanggal Dokumen Persyaratan
+(format date : YYYY-MM-DD)
+file_dokumen an 65535 N Attachment File Izin dalam Bentuk
+File PDF/Image Berupa Link (*
+Ukuran File Maks: 2MB)
+keterangan an 255 N Keterangan Dokumen
+Persyaratan
+jenis_id_user_proses an 2 1 Kode Jenis Identitas (* Lihat
+Lampiran 4)
+no_id_user_proses an 25 1 No Identitas Pemroses NIB
+nama_user_proses an 100 1 Nama User Pemroses NIB
+email_user_proses an 50 1 Email User Pemroses NIB
+hp_user_proses an 25 1 No HP Pemroses NIB
+alamat_user_proses an 255 1 Alamat Pemroses NIB
+jns_kelamin_user_proses an 1 1 Jenis Kelamin Pemroses NIB (L :
+Laki-Laki, P : Perempuan)
+tempat_lahir_user_proses an 100 1 Tempat Lahir Pemroses NIB
+tgl_lahir_user_proses an 10 1 Tanggal Lahir User Pemroses
+(format date : YYYY-MM-DD)
+daerah_id_user_proses an 10 1 ID Daerah User Pemroses(*
+Menggunakan Kodefikasi yang
+diterbitkan oleh Kemendagri -
+Permendagri No 137 Tahun 2017 :
+http://www.kemendagri.go.id/me
+dia/documents/2015/02/25/l/a/la
+mpiran_i.pdf )
+rt_rw_user_proses an 10 1 RT RW Pemroses NIB
+agama_user_proses an 50 1 Agama Pemroses NIB
+status_perkawinan_user_proses an 50 1 Status Perkawinan Pemroses NIB
+pekerjaan_user_proses an 50 1 Pekerjaan Pemroses NIB
+status_nib an 2 1 Status Penerbitan NIB (* Lihat
+Lampiran 14)
+tipe_dokumen an 1 1 Tipe Dokumen (9:Original,
+5:Update,3:Pencabutan,
+4:Pembatalan)
+Server Sistem OSS Client Sistem K/L/D
+Contoh Format JSON (Parameter):
+{
+"INQUERYNIB": {
+"nib": ""
+} }
+Contoh Format JSON (Return):
+{
+"responinqueryNIB": {
+"kode": "",
+"keterangan": "",
+"dataNIB": {
+"nib": "",
+"tgl_pengajuan_nib": "",
+"tgl_terbit_nib": "",
+"tgl_perubahan_nib": "",
+"oss_id": "",
+"id_izin": "",
+"kd_izin": "",
+"kd_daerah": "",
+"kewenangan": "",
+"jenis_pelaku_usaha": "",
+"no_npp": "",
+"no_va": "",
+"no_wlkp": "",
+"flag_perusahaan": "",
+"flag_ekspor": "",
+"flag_impor": "",
+"jenis_api": "",
+"gabung_negara": "",
+"negara_pma_dominan": "",
+"total_pma": "",
+"nilai_pma_dominan": "",
+"nilai_pmdn": "",
+"persen_pma": "",
+"persen_pmdn": "",
+"kd_kawasan": "",
+"jenis_kawasan": "",
+"versi_pia": "",
+"jangka_waktu": "",
+"status_badan_hukum": "",
+"status_penanaman_modal": "",
+"npwp_perseroan": "",
+"nama_perseroan": "",
+"nama_singkatan": "",
+"jenis_perseroan": "",
+"status_perseroan": "",
+"alamat_perseroan": "",
+"rt_rw_perseroan": "",
+"kelurahan_perseroan": "",
+"perseroan_daerah_id": "",
+"kode_pos_perseroan": "",
+"nomor_telpon_perseroan": "",
+"dalam_bentuk_uang": "",
+"dalam_bentuk_lain": "",
+"total_modal_dasar": "",
+"total_modal_ditempatkan": "",
+"pemegang_saham": [ {
+"jenis_pemegang_saham": "",
+"flag_asing": "",
+"total_modal_pemegang": "",
+"jabatan_pemegang_saham": "",
+"nama_pemegang_saham": "",
+"jns_identitas_pemegang_saham": "",
+"no_identitas_pemegang_saham": "",
+"valid_identitas_pemegang_saham": "",
+"negara_asal_pemegang_saham": "",
+"pengendali_pemegang_saham": "",
+"npwp_pemegang_saham": "",
+"alamat_pemegang_saham": "",
+"fax_pemegang_saham": "",
+"email_pemegang_saham": "",
+"flag_pajak_pemegang_saham": "",
+"ket_pajak_pemegang_saham": ""
+}
+],
+"penanggung_jwb": [ {
+"flag_asing": "",
+"jns_identitas_penanggung_jwb": "",
+"no_identitas_penanggung_jwb": "",
+"nama_penanggung_jwb": "",
+"jabatan_penanggung_jwb": " ",
+"kebangsaan_penanggung_jwb": "",
+"negara_asal_penanggung_jwb": "",
+"npwp_penanggung_jwb": "",
+"alamat_penanggung_jwb": "",
+"jalan_penanggung_jwb": "",
+"blok_penanggung_jwb": "",
+"no_penanggung_jwb": "",
+"rt_rw_penanggung_jwb": "",
+"kelurahan_penanggung_jwb": "",
+"daerah_id_penanggung_jwb": "",
+"kode_pos_penanggung_jwb": "",
+"no_telp_penanggung_jwb": "",
+"no_hp_penanggung_jwb": "",
+"no_fax_penanggung_jwb": "",
+"email_penanggung_jwb": "",
+"flag_pajak_penanggung_jwb": "",
+"ket_pajak_penanggung_jwb": ""
+}
+],
+"no_pengesahan": "",
+"tgl_pengesahan": "",
+"no_akta_lama": "",
+"tgl_akta_lama": "",
+"no_pengesahan_lama": "",
+"tgl_pengesahan_lama": "",
+"legalitas": [ {
+"jenis_legal": "",
+"no_legal": "",
+"tgl_legal": "",
+"alamat_notaris": "",
+"nama_notaris": "",
+"telepon_notaris": ""
+}
+],
+"data_rptka": {
+"jenis_rptka": "",
+"no_rptka": "",
+"rptka_awal": "",
+"rptka_akhir": "",
+"rptka_gaji": "",
+"jumlah_tka_rptka": "",
+"jangka_penggunaan_waktu": "",
+"jangka_waktu_permohonan_rptka": "",
+"rptka_jabatan": [ {
+"id_jabatan": "",
+"jabatan": "",
+"jumlah": "",
+"tgl_mulai": "",
+"tgl_selesai": "",
+"keterangan": "",
+"rptka_tki_pendamping": [ {
+"id_jabatan": "",
+"id_pendamping": "",
+"nama": "",
+"nik": "",
+"jabatan": "",
+"hp": "",
+"email": "",
+"foto": "",
+"pendidikan_min": "",
+"sertifikat": "",
+"pengalaman_kerja": "",
+"keterangan": ""
+} ] }
+],
+"rptka_negara": [ {
+"id_negara": "",
+"jumlah": ""
+}
+],
+"rptka_lokasi": [ {
+"lokasi_id": "",
+"jumlah": ""
+} ]
+},
+"data_proyek": [ {
+"id_proyek": "",
+"uraian_usaha": "",
+"jumlah_tki_l": "",
+"jumlah_tki_p": "",
+"jumlah_tka_l": "",
+"jumlah_tka_p": "",
+"kbli": "",
+"sektor": "",
+"memiliki_menguasai": "",
+"jenis_lokasi": "",
+"status_tanah": "",
+"luas_tanah": "",
+"satuan_luas_tanah": "",
+"pembelian_pematang_tanah": "",
+"bangunan_gedung": "",
+"mesin_peralatan": "",
+"mesin_peralatan_usd": "",
+"investasi_lain": "",
+"sub_jumlah": "",
+"modal_kerja": "",
+"jumlah_investasi": "",
+"tanggal_kurs": "",
+"nilai_kurs": "",
+"kd_kawasan": "",
+"jawab_lokasi_b": "",
+"jawab_lokasi_c": "",
+"jawab_lokasi_d": "",
+"jawab_lokasi_e": "",
+"jawab_lokasi_f": "",
+"jawab_lokasi_g": "",
+"flag_perluasan": "",
+"flag_cabang": "",
+"npwp_cabang": "",
+"nama_cabang": "",
+"jenis_identitas_pj": "",
+"no_identitas_pj": "",
+"nama_pj": "",
+"status_proyek": "",
+"data_lokasi_proyek": [ {
+"id_proyek_lokasi": "",
+"proyek_daerah_id": "",
+"kd_kawasan": "",
+"alamat_usaha": "",
+"id_kegiatan": "",
+"response_kegiatan": "",
+"jenis_kawasan": "",
+"jenis_lokasi": "",
+"status_lokasi": "",
+"data_lokasi_proyek": [ {
+"serial": "",
+"lat_lng": ""
+}
+],
+"data_posisi_proyek": [ {
+"id_proyek_posisi": "",
+"id_proyek_lokasi": "",
+"posisi_lokasi": ""
+} ] }
+],
+"data_proyek_produk": [ {
+"id_produk": "",
+"id_proyek": "",
+"kbli": "",
+"id_bidang_usaha": "",
+"jenis_produksi": "",
+"kapasitas": "",
+"satuan": "",
+"merk_dagang": "",
+"pemegang_haki": "",
+"pemegang_paten": "",
+"pi_nomor": "",
+"pi_tanggal": "",
+"pi_npwp": ""
+} ] }
+],
+"data_dni": [ {
+"kd_dni": ""
+}
+],
+"data_checklist": [ {
+"id_proyek": "",
+"id_izin": "",
+"kd_izin": "",
+"kd_daerah": "",
+"nama_izin": "",
+"no_izin": "",
+"tgl_izin": "",
+"instansi": "",
+"id_bidang_spesifik": "",
+"bidang_spesifik": "",
+"id_kewenangan": "",
+"parameter_kewenangan": "",
+"kewenangan": "",
+"file_izin": "",
+"flag_checklist": "",
+"data_persyaratan": [ {
+"id_syarat": "",
+"no_dokumen": "",
+"tgl_dokumen": "",
+"file_dokumen": "",
+"keterangan": ""
+} ] }
+],
+"jenis_id_user_proses": "",
+"no_id_user_proses": "",
+"nama_user_proses": "",
+"email_user_proses": "",
+"hp_user_proses": "",
+"alamat_user_proses": "",
+"jns_kelamin_user_proses": "",
+"tempat_lahir_user_proses": "",
+"tgl_lahir_user_proses": "",
+"daerah_id_user_proses": "",
+"rt_rw_user_proses": "",
+"agama_user_proses": "",
+"status_perkawinan_user_proses": "",
+"pekerjaan_user_proses": "",
+"status_nib": "",
+"tipe_dokumen ": ""
+} } }
+Method Name checkNIB Author Tim Teknis OSS
+Method Type POST
+Method Header OSS-API-KEY : SecurityKey Dari Sistem OSS;Content-Type:application/json
+Description Cek Data Nomor Induk Berusaha (NIB) yang Ada di Sistem OSS
+Input Parameters
+Parameters Type Length Repeat Description
+nib an 13 1 Nomor Induk Berusaha
+Return
+Parameters Type Length Repeat Description
+kode an 3 1 Kode Respon (*Lihat Lampiran 9)
+keterangan an 255 1 Keterangan Respon
+nib an 13 N Nomor Induk Berusaha
+nama_perusahaan an 100 N Nama Perusahaan
+status an 2 N Status NIB (*Lihat Lampiran 14)
+Server Sistem OSS Client Sistem K/L/D
+Method Name checkNIBError Author Tim Teknis OSS
+Method Type POST
+Method Header OSS-API-KEY : SecurityKey Dari Sistem OSS;Content-Type:application/json
+Description Cek Data Nomor Induk Berusaha (NIB) Error yang Ada di Sistem OSS
+Input Parameters
+Parameters Type Length Repeat Description
+tgl_awal an 10 1 Periode Tanggal Awal NIB Terbit (*
+Date Format YYYY-MM-DD)
+tgl_akhir an 10 1 Periode Tanggal Akhir NIB Terbit (*
+Date Format YYYY-MM-DD)
+Return
+Parameters Type Length Repeat Description
+kode an 3 1 Kode Respon (*Lihat Lampiran 9)
+Contoh Format JSON (Parameter):
+{
+"CHECKNIB": {
+"nib": "",
+} }
+Contoh Format JSON (Return):
+{
+"responcheckNIB": {
+"kode": "",
+"keterangan": "",
+"dataNIB": {
+"nib": "",
+"nama_perusahaan": "",
+"status": ""
+} } }
+keterangan an 255 1 Keterangan Respon
+jumlah n 11 1 Jumlah data NIB yang error
+Detil Data NIB Error N Berulang (N) Rows
+nib an 13 N Nomor Induk Berusaha
+oss_id an 25 N (Optional) Merupakan ID Pengajuan
+Permohonan Perizinan yang di
+Generate Sistem OSS, Untuk
+Pengiriman StatusIzin
+kd_izin an 12 N Kode Izin Sistem K/L/D (* Lihat
+Lampiran 8)
+Server Sistem OSS Client Sistem K/L/D
+Contoh Format JSON (Parameter):
+{
+"CHECKNIBERROR": {
+"tgl_awal": "",
+"tgl_akhir": ""
+} }
+Contoh Format JSON (Return):
+{
+"responcheckNIBError": {
+"kode": "",
+"keterangan": "",
+"checkNIBError": {
+"jumlah": "",
+"dataNIB": [
+{
+"nib": "",
+"oss_id": "",
+"kd_izin": ""
+} ] } } }
+Method Name checkNIBUpdate Author Tim Teknis OSS
+Method Type POST
+Method Header OSS-API-KEY : SecurityKey Dari Sistem OSS;Content-Type:application/json
+Description Cek Data Nomor Induk Berusaha (NIB) Updated yang Ada di Sistem OSS
+Input Parameters
+Parameters Type Length Repeat Description
+tgl_awal an 10 1 Periode Tanggal Awal NIB Terbit (*
+Date Format YYYY-MM-DD)
+tgl_akhir an 10 1 Periode Tanggal Akhir NIB Terbit (*
+Date Format YYYY-MM-DD)
+Return
+Parameters Type Length Repeat Description
+kode an 3 1 Kode Respon (*Lihat Lampiran 9)
+keterangan an 255 1 Keterangan Respon
+jumlah n 11 1 Jumlah data NIB yang error
+Detil Data NIB Update N Berulang (N) Rows
+nib an 13 N Nomor Induk Berusaha
+oss_id an 25 N (Optional) Merupakan ID Pengajuan
+Permohonan Perizinan yang di
+Generate Sistem OSS, Untuk
+Pengiriman StatusIzin
+kd_izin an 12 N Kode Izin Sistem K/L/D (* Lihat
+Lampiran 8)
+no_izin an 50 N Nomor Tanggal Iizn
+tgl_izin an 10 N TanggalTerbit Izin (* Date Format
+YYYY-MM-DD)
+Server Sistem OSS Client Sistem K/L/D
+Contoh Format JSON (Parameter):
+{
+"CHECKNIBUPDATE": {
+"tgl_awal": "",
+"tgl_akhir": ""
+} }
+Contoh Format JSON (Return):
+{
+"responcheckNIBUpdate": {
+"kode": "",
+"keterangan": "",
+"checkNIBUpdate": {
+"jumlah": "",
+"dataNIB": [
+{
+"nib": "",
+"oss_id": "",
+"kd_izin": "",
+"no_izin": "",
+"tgl_izin": ""
+} ] } } }
+Method Name rekonNIB Author Tim Teknis OSS
+Method Type POST
+Method Header OSS-API-KEY : SecurityKey Dari Sistem OSS;Content-Type:application/json
+Description Cek Data Nomor Induk Berusaha (NIB) yang Sukses terkirim di Sistem OSS
+Input Parameters
+Parameters Type Length Repeat Description
+tgl_awal an 10 1 Periode Tanggal Awal NIB Terbit (*
+Date Format YYYY-MM-DD)
+tgl_akhir an 10 1 Periode Tanggal Akhir NIB Terbit (*
+Date Format YYYY-MM-DD)
+Return
+Parameters Type Length Repeat Description
+kode an 3 1 Kode Respon (*Lihat Lampiran 9)
+keterangan an 255 1 Keterangan Respon
+jumlah n 11 1 Jumlah data NIB yang error
+Detil Data NIB Rekon N Berulang (N) Rows
+nib an 13 N Nomor Induk Berusaha
+oss_id an 25 N (Optional) Merupakan ID Pengajuan
+Permohonan Perizinan yang di
+Generate Sistem OSS, Untuk
+Pengiriman StatusIzin
+kd_izin an 12 N Kode Izin Sistem K/L/D (* Lihat
+Lampiran 8)
+Server Sistem OSS Client Sistem K/L/D
+Contoh Format JSON (Parameter):
+{
+"REKONNIB": {
+"tgl_awal": "",
+"tgl_akhir": ""
+} }
+Contoh Format JSON (Return):
+{
+"responrekonNIB": {
+"kode": "",
+"keterangan": "",
+"rekonNIB": {
+"jumlah": "",
+"dataNIB": [
+{
+"nib": "",
+"oss_id": "",
+"kd_izin": ""
+} ] } } }
+Method Name checkKomitmen Author Tim Teknis OSS
+Method Type POST
+Method Header Token:SHA1(USERNAME+PASSWORD+NIB+DATE(Ymd));Content�Type:application/json
+Method Security USERNAME , PASSWORD & SIGN
+*) Username & Password : Username dan Password diberikan setelah perusahaan
+aplikasi memberikan informasi data perusahaan dan sign merupakan verifikasi
+data untuk setiap transaksi
+*) Token : SHA1(USERNAME+PASSWORD+NIB+DATE(Ymd))
+contoh = Token :OSS000qw13242628gssssss812345678909820180514
+Description Cek Data Nomor Dokumen Komitmen/Checklist yang Ada di Sistem K/L/D
+Input Parameters
+Parameters Type Length Repeat Description
+nib an 13 1 Nomor Induk Berusaha
+no_dokumen an 50 1 Nomor Dokumen
+tgl_dokumen an 10 1 Tanggal Dokumen (* Date Format
+YYYY-MM-DD)
+Return
+Parameters Type Length Repeat Description
+kode an 3 1 Kode Respon (*Lihat Lampiran 9)
+keterangan an 255 1 Keterangan Respon
+nib an 13 1 Nomor Induk Berusaha
+npwp_perusahaan an 15 1 NPWP Perusahaan
+nama_perusahaan an 100 1 Nama Perusahaan
+status an 2 1 Status Dokumen *(00 : Valid, 01 :
+Tidak Valid)
+Server Sistem K/L/D Client Sistem OSS
+Contoh Format JSON (Parameter):
+{
+"CHECKKOMITMEN": {
+"nib": "",
+"tgl_dokumen": "",
+"no_dokumen": ""
+} }
+Contoh Format JSON (Return):
+{
+"responcheckKomitmen": {
+"kode": "",
+"keterangan": "",
+"dataNIB": {
+"nib": "",
+"npwp_perusahaan": "",
+"nama_perusahaan": "",
+"status": ""
+} } }
+A. REFERENSI
+I. LAMPIRAN 1 - DATA STATUS PERMODALAN
+KODE STATUS KETERANGAN
+01 Penanaman Modal Asing Salah satu Sumber Penanaman Modal berasal dari
+Asing
+02 Penanaman Modal Dalam Negeri Semua Sumber Penanaman Modal berasal dari Lokal
+03 Bukan (PMA/PMDN) Khusus untuk Bentuk Usaha Tetap (BUT)
+II. LAMPIRAN 2 - DATA JENIS PERUSAHAAN
+KODE JENIS PERUSAHAAN KETERANGAN
+01 Perusahaan Terbatas (PT)
+Badan Usaha yang Berbadan Hukum resmi yang
+dimiliki oleh minimal dua orang dengan tanggung
+jawab yang hanya berlaku pada perusahaan tanpa
+melibatkan harta pribadi atau perseorangan yang ada
+di dalamnya.
+02 Perseroan Komanditer (CV)
+Badan Usaha bisnis yang didirikan dan dimiliki oleh dua
+orang atau lebih. Salah satu pihak melibatkan harta
+pribadi dan pihak lainnya hanya menyertakan modal
+saja tanpa harus melibatkan harta pribadi ketika krisis
+finansial.
+04 BUMN/BUMD Badan Usaha dimana seluruh atau sebagian modal
+dimiliki oleh Pemerintah Pusat/Daerah.
+05 Firma (Fa)
+Badan Usaha yang didirikan oleh 2 orang atau lebih
+dimana tiap anggota bertanggung jawab penuh atas
+perusahaan.
+06 Persekutuan Perdata
+Sekumpulan orang yang memiliki profesi yang sama
+dan berkeinginan untuk berhimpun dengan
+menggunakan nama bersama.
+07 Koperasi
+Badan Usaha yang beranggotakan orang – orang atau
+badan hukum koperasi dengan melandaskan
+kegiatannya berdasarkan prinsip koperasi sekaligus
+sebagai gerakan ekonomi rakyat yang berlandaskan
+asas kekeluargaan.
+08 Dana Pensiun
+Lembaga atau Badan Hukum yang mengelola program
+pensiun dengan tujuan memberikan kesejahteraan
+kepada karyawan suatu perusahaan terutama yang
+telah pensiun.
+09 Persekutuan dan Perkumpulan
+10 Yayasan Badan Usaha Berbadan Hukum yang tidak mencari
+untung. Jadi lebih ke kepentingan sosial.
+11 Organisasi Sekelompok orang dalam suatu wadah untuk tujuan
+bersama.
+12 Organisasi Sosial Politik Sekelompok orang dalam suatu wadah untuk tujuan
+bersama yang bergerak di bidang Sosial Politik.
+13 Organisasi Lainnya Sekelompok orang dalam suatu wadah untuk tujuan
+bersama, di luar bidang Sosial Politik.
+14 Lembaga dan Bentuk Lainnya
+15 Kontrak investasi kolektif
+Kontrak antara Manajer Investasi dan Bank Kustodian
+yang mengikat pemegang Unit Penyertaan di mana
+Manajer Investasi diberi wewenang untuk mengelola
+portofolio investasi kolektif dan Bank Kustodian diberi
+wewenang untuk melaksanakan Penitipan Kolektif.
+16 Bentuk Usaha Tetap (BUT)
+Bentuk Usaha yang dipergunakan untuk orang pribadi
+yang tidak bertempat tinggal di Indonesia atau berada
+di Indonesia tidak lebih dari 183 hari dalam jangka
+waktu 12 bulan, atau Badan yang tidak didirikan dan
+tidak berkedudukan di Indonesia, untuk menjalankan
+usaha atau melakukan kegiatan di Indonesia
+18 Badan Layanan Umum (BLU)
+Instansi di lingkungan Pemerintah yang memberikan
+pelayanan kepada masyarakat berupa penyediaan
+barang dan/atau jasa yang dijual tanpa mengutamakan
+mencari keuntungan dan dalam melakukan
+kegiatannya didasarkan pada prinsip efisiensi dan
+produktifitas.
+19 Badan Hukum (selain PT)
+20 Badan Usaha Lainnya (Khusus
+STPW Luar Negeri) Badan Usaha khusus STPW Luar Negeri
+III. LAMPIRAN 3 - DATA JENIS ANGKA PENGENAL IMPORTIR (API)
+KODE KETERANGAN
+01 Angka Pengenal Importir Umum (API-U)
+02 Angka Pengenal Importir Produsen (API-P)
+IV. LAMPIRAN 4 - DATA JENIS IDENTITAS
+KODE KETERANGAN
+01 Kartu Tanda Penduduk (KTP)
+02 Paspor
+V. LAMPIRAN 5 - DATA JENIS STATUS TANAH
+KODE KETERANGAN
+01 Sewa
+02 Bukan Sewa
+VI. LAMPIRAN 6 - DATA JENIS ASAL INVESTOR
+KODE KETERANGAN
+01 Indonesia
+02 Asing
+VII. LAMPIRAN 7 - DATA JENIS AKTA
+KODE KETERANGAN
+01 Akta Pendirian
+02 Akta Perubahan
+06 Kontrak
+07 Peraturan
+09 SK Penetapan
+10 Akta Likuidasi
+11 Akta Merger
+12 Akta Pembubaran
+VIII. LAMPIRAN 8 - DATA KODE IZIN
+KODE KETERANGAN INSTANSI
+Untuk Referensi Kode Izin Bisa Akses ke Link Berikut :
+https://www.oss.go.id/oss/#Home/portal/perizinanKl
+*)Notes : Kode Perizinan Adalah Kode Unik yang Diterbitkan Oleh K/L/D,Untuk K/LD yang belum terdaftar
+silahkan menghubungi Tim Teknis OSS.
+IX. LAMPIRAN 9 - DATA STATUS RESPON
+KODE KETERANGAN
+200 Sukses
+400 Data Parameter Salah
+401 User Akses Tidak Valid
+403 Ilegal Inquery /Akses
+404 Akses Service Tidak Ditemukan
+405 Akses Service Ditolak
+500 Proses Payload Data Di Sistem OSS Gagal
+504 Proses Payload Data Di Sistem OSS Timeout
+X. LAMPIRAN 10 - DATA KODE STATUS IZIN
+KODE STATUS KETERANGAN
+20 Validasi Petugas melalukan pengecekkan terhadap Izin
+tersebut
+30 Verifikasi Pembayaran Petugas melakukan verifikasi pembayaran terhadap
+Pelaku Usaha
+40 Inspeksi Petugas melakukan pengecekan ke lapangan
+50 Disetujui Petugas menyetujui Izin dari Pelaku Usaha
+60 Peringatan Petugas memberikan peringatan terhadap Izin
+Pelaku Usaha, apabila Izin tersebut bermasalah
+70 Penghentian Sementara Kegiatan
+Berusaha
+Petugas menghentikan sementara kegiatan
+berusaha, apabila Izin tersebut bermasalah
+80 Pengenaan Denda Administratif Petugas memberikan denda administratif, apabila
+Izin tersebut bermasalah
+90 Ditolak Petugas menolak permohonan Izin Usaha
+91 Pencabutan Perizinan Berusaha Petugas mencabut Izin Usaha
+XI. LAMPIRAN 11 - DATA KODE KLASIFIKASI SAHAM
+KODE KETERANGAN
+01 Tanpa Klasifikasi
+02 Seri A
+03 Seri B
+04 Seri C
+05 Seri D
+06 Seri E
+XII. LAMPIRAN 12 - DATA KODE STATUS BADAN HUKUM
+KODE KETERANGAN
+01 Badan Hukum
+02 Bukan Badan Hukum
+XIII. LAMPIRAN 13 - DATA KODE JENIS PEMEGANG SAHAM
+KODE KETERANGAN
+01 Perorangan
+02 Badan Hukum
+XIV. LAMPIRAN 14 - DATA KODE STATUS DOKUMEN NIB
+KODE KETERANGAN
+01 Aktif
+02 Belum Aktif
+03 Diizinkan Usaha
+04 Diizinkan Beroperasi
+05 Dibekukan
+XV. LAMPIRAN 15 - DATA KODE DAFTAR NEGATIF INVESTASI (DNI)
+KODE KETERANGAN
+1 Maksimal 70% bagi penanam modal dari negara-negara ASEAN; dan
+2 Penanaman Modal Asing Maksimal 67%
+3 Bertempat di dalam mal dan tidak stand alone
+4
+Penambahan outletstore berdasarkan ekspor p erformance (pay
+perfomwnce)
+5
+Bahan baku dari Hutan Tanaman Industri (HTI) atau berasal dari Chip Impor
+jika bahan baku dalam negeri tidak mencukupi
+6 Bahan Baku Minimal 20% Berasal dari Kebun Sendiri
+7
+Dapat dilakukan diseluruh Ibukota Provinsi Indonesia Timur kecuali
+Makassar dan Manado
+8
+Dapat dilakukan diseluruh Ibukota Provinsi Indonesia Timur kecuali
+Makassar dan Manado
+9
+Hanya berlaku pada 4 (empat) pelabuhan di↵wilayah Indonesia bagian timur yaitu:↵Pelabuhan Bitung, Pelabuhan Ambon, Pelabuhan Kupang, dan
+Pelabuhan Sarong khusus Negara-negara anggota ASEAN
+10
+Hanya monopoli untuk Lembaga Penyiaran Publik↵Radio. Republik Indonesia
+(RRI), Televisi Republik Indonesia (TVRI), dan Lembaga Penyiaran Publik
+Lokal (LPPL)
+11 Hanya untuk penambahan dan pengembangan usaha
+12 Izin Khusus dari Kementerian Kesehatan
+13 Izin Khusus dari Kementerian Kesehatan
+14 Izin Khusus dari Kementerian Kesehatan
+15 Izin Khusus dari Kementerian Perhubungan
+06 Dicabut
+16 Izin Khusus dari Kementerian Perhubungan terkait dengan persyaratan
+modal minimum
+17 Izin operasional dari BOTASUPAL/BIN
+18 Izin Operasional dari Mabes Polri
+19 Jaringan distribusi dan tempatnya khusus
+20 Kewajiban Perkebunan Plasma Sebesar 20%
+21 Lokasi Tertentu yang ditetapkan oleh Kementerian Pertanian
+22 lzin Khusus dari Kementerian Kesehatan
+23 Maksimal 51% bagi penanam modal dari negara-negara ASEAN
+25 Maksimal 70% bagi penanam modal dari negara-negara ASEAN
+26 Maksimal 70% bagi penanam modal dari negara-negara ASEAN; dan
+28 Modal dalam negeri 100%
+29
+Modal dalam negeri 100% dan Izin Khusus dari↵Kementerian Kelautan dan
+Perikanan mengenai alokasi sumber daya ikan dan titik koordinat daerah
+penangkapan ikan
+30 Pemenuhan kebutuhan bahan baku paling banyak 80% dengan pola
+kemitraan
+31 Pemenuhan kebutuhan bahan baku paling kurang 20% dari kapasitas
+produksi berasal dari kebun karetsendiri
+32 Pemilik modal nasional harus tetap lebih besar dari keseluruhan pemilik
+modal asing (single majority)
+33
+Pemyataan kerjasama dengan lembaga yang terakreditasi/laboratorium di
+Indonesia/ lembaga nasional bidang litbang yang ditunjuk oleh Kementerian
+Lingkungan Hidup dan Kehutanan
+35 Penanaman Modal Asing Maksimal 100%
+36 Penanaman Modal Asing Maksimal 30%
+37 Penanaman Modal Asing Maksimal 33%
+38 Penanaman Modal Asing Maksimal 49%
+39 Penanaman Modal Asing Maksimal 49%, dengan 51% untuk BUMN
+40 Penanaman Modal Asing Maksimal 51%
+41 Penanaman Modal Asing Maksimal 67%
+42 Penanaman Modal Asing Maksimal 70% bagi penanam modal dari negara�negaraASEAN
+43 Penanaman Modal Asing Maksimal 75%
+44 Penanaman Modal Asing Maksimal 80%
+45 Penanaman Modal Asing Maksimal 85%
+46 Penanaman Modal Asing Maksimal 90%
+47 Penanaman Modal Asing Maksimal 95%↵(Maksimal 100% apabila dalam
+rangka KPS selama masa konsesi)
+48 Penanaman Modal Asing Maksimal 95%
+49 Penanaman Modal Asing Maksimal 95% (Maksimal 100% apabila dalam
+rangka Kerjasama Pemerintah Swasta/KPS selama masa konsesi)
+50 Penanaman Modal Asing Maksimum 20%
+51 Penanaman Modal Asing Maksimum 49%
+52 Perizinan Khusus dari OtoritasJasa Keuangan
+53 Rekomendasi dari Kcmenterian Pertahanan
+54
+Rekomendasi dari Kementerian Lingkungan Hidup↵dan Kementerian
+Perindustrian khusus untuk industri yang menggunakan bahan baku accu
+bekas
+55 Rekomendasi dari Kementerian Lingkungan Hidup dan Kehutanan
+56 Rekomendasi dari Kementerian Perindustrian
+57
+Rekomendasi pasokan bahan baku berkelanjutan dari Kementerian
+Lingkungan Hidup dan Kehutanan
+58 Sesuai dengan ketentuan yang ditetapkan BPOM dan Kementerian
+Perdagangan
+59 Sesuai Undang-Undang Nomor 12 Tahun 2012 tentang Pendidikan Tinggi
+serta Peraturan Pelaksanaannya
+60 Sesuai Undang-Undang Nomor 20 Tahun 2003 tentang Sistem Pendidikan
+Nasional (Sisdikmas) serta Peraturan Pelaksanaannya
+61 Surat Izin Usaha Perdagangan Minuman Beralkohol (SIUP-MB)
+62
+Untuk menengah penanaman modal baru, hanya industri↵rokok skala kecil dan yang bermitra↵dengan industri rokok skala besar yang sudah↵memiliki lUI pada bidang usaha sejenis
+63
+Untuk perluasan usaha, hanya industri rokok↵yang telah memiliki Izin Usaha Tndustri (lUI)↵pada bidang usaha sejenis
+64 Dicadangkan untuk UMKMK
+65 Kemitraan dengan UMKMK
+66 Bidang Usaha Tidak Termasuk Dalam DNI
+67 Usaha Perbenihan/Pembibitan Tanaman Pangan Pokok dengan Luas lebih
+dari 25 Ha
+68 Usaha Budidaya Tanaman Pangan Pokok dengan Luas lebih dari 25 Ha
+69 Usaha Industri Perbenihan Perkebunan dengan Luas 25 Ha atau Lebih
+70 Usaha Perkebunan dengan Luas 25 Ha atau Lebih Sampai Luasan Tertentu
+Tanpa Unit Pengolahan
+71 Usaha Perkebunan dengan Luas 25 Ha atau Lebih yang Terintegrasi dengan
+Unit Pengolahan dengan Kapasitas Sama atau Melebihi Kapasitas Tertentu
+72 Usaha dengan Kapasitas Sama atau Melebihi Kapasitas Tertentu
+73 Usaha Budidaya Tanaman Pangan Pokok dengan Luas Kurang dari 25 Ha
+74 Usaha Perbenihan Perkebunan dengan Luas Kurang dari 25 Ha
+75 Usaha Perkebunan dengan Luas Kurang dari 25 Ha
+76 Usaha Kapasitas Tertentu
+XVI. LAMPIRAN 16 - DATA KODE JENIS LOKASI
+KODE KETERANGAN
+01 Dalam Kawasan
+02 Di luar Kawasan
+XVII. LAMPIRAN 17 - DATA KODE SATUAN TANAH
+KODE KETERANGAN
+01 M2
+02 Ha
+XVIII. LAMPIRAN 18 - DATA KODE JENIS PELAKU USAHA
+KODE KETERANGAN
+11 Non Perseorangan
+12 Perseorangan
+18 Perwakilan (SIUP3A dan BUJK)
+XIX. LAMPIRAN 19 - DATA STATUS FLAG PAJAK
+KODE KETERANGAN
+00 Valid/Sukses
+01 Invalid/Gagal
+02 Masa SPT Tahunan
+03 Masa PPN 3 Bulanan
+04 Wajib Pajak Tidak Ditemukan
+XX. LAMPIRAN 20 - KODE REFERENSI SEKTOR
+KODE SEKTOR KEMENTERIAN
+020 Ketenagalistrikan Energi dan Sumber Daya Mineral
+018 Pertanian Pertanian
+029 Lingkungan Hidup Dan Kehutanan Lingkungan Hidup Dan Kehutanan
+033 Pekerjaan Umum Dan Perumahan
+Rakyat Pekerjaan Umum Dan Perumahan Rakyat
+032 Kelautan Dan Perikanan Kelautan Dan Perikanan
+024 Kesehatan Kesehatan
+063 Obat Dan Makanan Obat Dan Makanan
+019 Perindustrian Perindustrian
+090 Perdagangan Perdagangan
+022 Perhubungan Perhubungan
+25 Badan Usaha Lainnya (STPW Luar Negeri)
+059 Komunikasi dan Informatika Komunikasi dan Informatika
+015 Keuangan Keuangan
+040 Pariwisata Pariwisata
+023 Pendidikan dan Kebudayaan Pendidikan dan Kebudayaan
+042 Pendidikan Tinggi Riset, Teknologi, dan Pendidikan Tinggi
+025 Agama dan Keagamaan Agama
+026 Ketenagakerjaan Ketenagakerjaan
+060 Kepolisian Kepolisian
+044 Perkoperasian Dan Usaha Mikro,
+Kecil, Menengah (UMKM) Koperasi dan Usaha Kecil dan Menengah
+085 Ketenaganukliran Ketenaganukliran
+XXI. LAMPIRAN 21 - DATA KODE JENIS KAWASAN
+KODE KETERANGAN
+01 Kawasaki Industri (KI)
+02 Kawasaki Ekonomi Khusus (KEK)
+03 Free Trade Zone (FTZ)
+XXII. LAMPIRAN 22 - DATA KODE STATUS PROYEK
+KODE KETERANGAN
+01 Baru
+02 Lama
+XXIII. LAMPIRAN 23 - DATA KODE TIPE KAWASAN
+KODE KETERANGAN
+01 Kawasan Industri (KI)
+02 Kawasan Ekonomi Khusus (KEK)
+03 Free Trade Zone (FTZ)
+XXIV. LAMPIRAN 24 - DATA KODE POSISI LOKASI
+KODE KETERANGAN
+01 Daratan
+02 Perairan
+03 Kawasan Hutan
+XXV. LAMPIRAN 25 - DATA KODE STATUS LOKASI
+KODE KETERANGAN
+01 Lokasi Utama
+02 Hamparan
+B. PENUTUP
+Page 100 of 100

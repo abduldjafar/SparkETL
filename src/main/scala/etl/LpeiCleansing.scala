@@ -11,7 +11,7 @@ object LpeiCleansing {
     val spark = SparkSession.builder().
       appName("Cleansing Data").
       master("local[*]").
-      config("hive.metastore.uris", "thrift://192.168.15.142:9083").enableHiveSupport().getOrCreate()
+      config("hive.metastore.uris", "thrift://ip:9083").enableHiveSupport().getOrCreate()
     var dataColummn = spark.read.format("csv").option("delimiter"," ").load("listcolumnsLPEI")
     val dataColumns = dataColummn.select("_c0","_c1","_c2").filter("_c1 = 'n' OR _c1 = 'an'")
       .distinct().withColumnRenamed("_c0","namacolumn").drop("_c0")
