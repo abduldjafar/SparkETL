@@ -1,13 +1,10 @@
-import etl.bronzeDeltaLake.{
-    FileProcessing,
-    IngestionFromRdbms
-}
+import etl.bronzeDeltaLake.{FileProcessing, IngestionFromRdbms}
 
 import etl.silverDeltaLake.SakilaDataWarehousing
 import org.apache.spark.sql.SparkSession
 
 object Main {
-  def main(args: Array[String]): Unit ={
+  def main(args: Array[String]): Unit = {
     val fileProcessing = FileProcessing
     val ingestionFromRdbms = IngestionFromRdbms
     val sakilaDataWarehousing = SakilaDataWarehousing
@@ -17,19 +14,22 @@ object Main {
       .appName("Cleansing Data")
       .master("local[*]")
       .getOrCreate()
-    /* 
+    /*
         data ingestion to bronze delta lake
-    */
-    fileProcessing.process_transaction_json(spark,"data-lake/delta-bronze/transactions-json")
-    ingestionFromRdbms.proces_sakila_db(spark,"data-lake/delta-bronze/sakila-db")
+     */
+    fileProcessing.process_transaction_json(
+      spark,
+      "data-lake/delta-bronze/transactions-json"
+    )
+    ingestionFromRdbms.proces_sakila_db(
+      spark,
+      "data-lake/delta-bronze/sakila-db"
+    )
 
-    /* 
+    /*
         data cleansing and make it as a datawarehoue
-    */
-    sakilaDataWarehousing.process(spark,"data-lake/delta-silver/dwh")
-
-    
-
+     */
+    sakilaDataWarehousing.process(spark, "data-lake/delta-silver/dwh")
 
   }
 }

@@ -6,11 +6,16 @@ import org.apache.spark.sql.expressions.Window
 import org.apache.spark.SparkFiles
 
 object FileProcessing {
-  def process_transaction_json(spark: SparkSession,delta_lake_path: String): Unit = {
-    
+  def process_transaction_json(
+      spark: SparkSession,
+      delta_lake_path: String
+  ): Unit = {
+
     spark.sparkContext.setLogLevel("ERROR")
 
-    spark.sparkContext.addFile("https://github.com/kotekaman/spark-structured-streaming-example/raw/ahmed_tasks/transactions.json")
+    spark.sparkContext.addFile(
+      "https://github.com/kotekaman/spark-structured-streaming-example/raw/ahmed_tasks/transactions.json"
+    )
     val data_frame = spark.read.json(SparkFiles.get("transactions.json"))
 
     val transactions_table = data_frame
@@ -65,10 +70,8 @@ object FileProcessing {
       )
       .distinct()
       .orderBy(desc("total_between_bucket_end_date_and_bucket_start_date"))
-    
 
     windowing_df.write.format("delta").mode("overwrite").save(delta_lake_path)
-    
 
   }
 }
