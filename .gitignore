@@ -5,3 +5,6 @@
 /target/scala-2.12/classes/
 .metals
 .vscode
+.bloop
+delta-table
+data-lake
