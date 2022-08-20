@@ -12,6 +12,7 @@ object Main {
     val spark = SparkSession
       .builder()
       .appName("Cleansing Data")
+      .config("jars","jars/mariadb-java-client-3.0.7.jar")
       .master("local[*]")
       .getOrCreate()
     /*
