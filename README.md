@@ -4,4 +4,6 @@
 Self project for implementing delta lake architecture
 
 
-## Architecture![modern_sata_stack_2](https://user-images.githubusercontent.com/26897306/185605964-20d8809a-1fce-489a-9f47-4e25105b6869.jpg)
+## Architecture
+![modern_sata_stack_2_new](https://user-images.githubusercontent.com/26897306/185607570-a4908b05-99c5-4dd5-9bb5-5990932d83d1.jpg)
+
