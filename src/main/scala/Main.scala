@@ -9,6 +9,8 @@ object Main {
     val ingestionFromRdbms = IngestionFromRdbms
     val sakilaDataWarehousing = SakilaDataWarehousing
 
+    
+
     val spark = SparkSession
       .builder()
       .appName("Cleansing Data")
@@ -30,7 +32,8 @@ object Main {
     /*
         data cleansing and make it as a datawarehoue
      */
-    sakilaDataWarehousing.process(spark, "data-lake/delta-silver/dwh")
+    sakilaDataWarehousing.process(spark, "data-lake/delta-bronze/transactions-json","")
+    println("Process Finished")
 
   }
 }
