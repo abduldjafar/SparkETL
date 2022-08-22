@@ -15,3 +15,11 @@ services:
       MYSQL_ROOT_PASSWORD: toor
     ports:
       - "13306:3306"
+  data-pusher:
+    image: kotekaman/datapusher:0.2
+    build: ./data_pusher
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: toor
+
