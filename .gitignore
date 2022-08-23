@@ -11,3 +11,5 @@ data-lake
 project
 transactions2.json
 jars
+setup_env.sh
+/src/main/resources/application.conf 

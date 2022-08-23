@@ -2,6 +2,13 @@ package etl.silverDeltaLake
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.DataFrameReader
 import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.expressions.Window
+import org.apache.spark.sql.functions.{
+  row_number,
+  monotonically_increasing_id,
+  asc,
+  lit
+}
 
 object RdbmsDataWarehousing {
   def process_db_employees_from_bronze(
@@ -45,7 +52,40 @@ object RdbmsDataWarehousing {
       sources_delta_lake_path.concat("titles")
     )
 
-    val dim_tb_employees = tb_employees
+    val title_with_id = tb_titles
+      .select("title")
+      .distinct()
+      .orderBy(asc("title"))
+      .withColumn("titles_id", monotonically_increasing_id() + lit(1))
+      .withColumnRenamed("title", "temp_title")
+
+    val dim_title_with_emp_no = tb_titles
+      .join(
+        title_with_id,
+        tb_titles("title") === title_with_id("temp_title"),
+        "inner"
+      )
+      .select("titles_id", "title", "emp_no", "from_date", "to_date")
+      .withColumn(
+        "titles_surrogate_key",
+        monotonically_increasing_id() + lit(1)
+      )
+      .withColumnRenamed("emp_no", "titles_emp_no")
+
+    val fact_employees = tb_employees
+      .join(
+        dim_title_with_emp_no,
+        tb_employees("emp_no") === dim_title_with_emp_no("titles_emp_no"),
+        "inner"
+      )
+      .select("emp_no", "titles_surrogate_key")
+      .withColumnRenamed("titles_surrogate_key", "titles_key")
+      .withColumn("key", monotonically_increasing_id() + lit(1))
+
+    fact_employees.write
+      .format("delta")
+      .mode("overwrite")
+      .save(destination_delta_lake_path.concat("fact_employees"))
   }
 
 }

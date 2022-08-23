@@ -12,4 +12,15 @@ libraryDependencies += "io.delta" %% "delta-core" % "2.0.0"
 // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
 libraryDependencies += "org.mariadb.jdbc" % "mariadb-java-client" % "3.0.7"
 libraryDependencies += "mysql" % "mysql-connector-java" % "8.0.16"
+// https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws
+libraryDependencies += "org.apache.hadoop" % "hadoop-aws" % "3.2.4"
+// https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client
+libraryDependencies += "org.apache.hadoop" % "hadoop-client" % "3.3.2" % "provided"
+// https://mvnrepository.com/artifact/com.typesafe/config
+libraryDependencies ++= Seq(
+
+    "com.typesafe" % "config" % "1.3.3"
+  
+)
+
 
