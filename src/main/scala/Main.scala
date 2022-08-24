@@ -15,11 +15,21 @@ object Main {
   
   def main(args: Array[String]): Unit = {
 
-    var filepath: String = "s3://kotekaman-dev/config/application.conf"
+    var filepath: String = ""
+    var delta_lake_path: String = ""
+    var s3_data_sources: String = ""
 
-    if (args.length == 1) {
+    if (args.length == 3) {
          filepath = args(0).toString
+         delta_lake_path = args(1).toString
+         s3_data_sources = args(2).toString
+    }else{
+      filepath = "s3://kotekaman-dev/config/application.conf"
+      delta_lake_path = "s3a://kotekaman-dev/"
+      s3_data_sources = "s3a://kotekaman-dev/data-sources/"
     }
+
+    
     
     val applicationConf: TConfig = Config(filepath)
 
@@ -28,7 +38,6 @@ object Main {
     val ingestionFromRdbms = IngestionFromRdbms
     val rdbmsDataWarehousing = RdbmsDataWarehousing
  
-    val delta_lake_path = "s3a://kotekaman-dev/"
 
 
     val connectionProperties = new Properties()
@@ -47,9 +56,11 @@ object Main {
         "spark.hadoop.fs.s3a.secret.key",
         applicationConf.getString("aws.secret_access_key")
       )
-      .master("local[*]")
       .getOrCreate()
 
+    fileProcessing.process_airbnb(spark,s3_data_sources,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
+
+    /*
     ingestionFromRdbms.proces_employees_db(
       spark,
       delta_lake_path.concat("data-lake/delta-bronze"),
@@ -62,15 +73,12 @@ object Main {
       delta_lake_path.concat("data-lake/delta-bronze/db_employees/"),
       delta_lake_path.concat("data-lake/delta-silver/dwh/")
     )
-
-
-     /*
-        data ingestion to bronze delta lake
-     */
-    //fileProcessing.process_transaction_json(
-    //spark,
-    //"data-lake/delta-bronze/transactions-json"
-    //)
+     
+    fileProcessing.process_transaction_json(
+    spark,
+    "data-lake/delta-bronze/transactions-json"
+    )
+    */
 
   }
 }

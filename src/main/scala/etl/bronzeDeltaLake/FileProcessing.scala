@@ -4,8 +4,51 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{explode, col, avg, sum, desc, min, max}
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.SparkFiles
+import org.apache.spark.sql.Column
+import org.apache.spark.sql.types.{
+      IntegerType,
+      DoubleType,
+      BooleanType
+}
 
 object FileProcessing {
+  def process_airbnb(
+      spark: SparkSession,
+      data_source: String,
+      delta_lake_path: String
+  ): Unit = {
+
+    val data_frame = spark.read.json(
+      data_source.concat("sample_airbnb/listingsAndReviews.json")
+    )
+
+    val colsMap: Map[String, Column] = Map(
+      "id" -> col("_id"),
+      "accommodates" -> col("accommodates.$numberInt").cast(IntegerType),
+      "address_country" -> col("address.country"),
+      "address_country_code" -> col("address.country_code"),
+      "address_government_area" -> col("address.government_area"),
+      "address_location_cordinates_element_float" ->col("address.location.cordinates.element.$numberDouble").cast(DoubleType),
+      "address_location_cordinates_element_int" -> col("address.location.cordinates.element.$numberInt").cast(IntegerType),
+      "address_location_is_exact" -> col("address.location.is_location_exact").cast(BooleanType),
+      "address_location_type" -> col("address.location.type")
+    )
+
+    data_frame
+      .withColumns(colsMap)
+      .select(
+        "id",
+        "accommodates",
+        "address_country",
+        "address_government_area",
+        "address_location_cordinates_element_float",
+        "address_location_cordinates_element_int",
+        "address_location_is_exact",
+        "address_location_type"
+      )
+      .write.format("delta").mode("overwrite").save(delta_lake_path)
+
+  }
   def process_transaction_json(
       spark: SparkSession,
       delta_lake_path: String

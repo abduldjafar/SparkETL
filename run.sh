@@ -1,0 +1,2 @@
+sbt assembly
+spark-submit --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" target/scala-2.12/SparkETL-assembly-0.1.jar s3://kotekaman-dev/config/application.conf s3a://kotekaman-dev/ s3a://kotekaman-dev/data-sources/
