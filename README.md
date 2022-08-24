@@ -10,3 +10,11 @@ Self project for implementing delta lake architecture
 ## Notes
 1. If want to trying in local developemnt without run in spark cluster please install external dependencies use sbt file
 
+## Build Fat Jar
+`sbt assembly`
+
+## build thin jar
+`sbt package`
+
+## Run use Fat jar (spark-submit)
+`./spark-submit --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" SparkETL-assembly-0.1.jar`

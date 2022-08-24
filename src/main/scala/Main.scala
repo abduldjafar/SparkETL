@@ -38,11 +38,6 @@ object Main {
     val spark = SparkSession
       .builder()
       .appName("Cleansing Data")
-      .config("spark.jars", "jars/mariadb-java-client-3.0.7.jar")
-      .config(
-        "spark.driver.extraClassPath",
-        "jars/mariadb-java-client-3.0.7.jar"
-      )
       .config(
         "spark.hadoop.fs.s3a.aws.credentials.provider",
         "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider"
