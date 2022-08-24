@@ -1,14 +1,19 @@
 package etl.bronzeDeltaLake
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{explode, col, avg, sum, desc, min, max}
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.SparkFiles
 import org.apache.spark.sql.Column
-import org.apache.spark.sql.types.{
-      IntegerType,
-      DoubleType,
-      BooleanType
+import org.apache.spark.sql.types.{IntegerType, DoubleType, BooleanType}
+import org.apache.spark.sql.functions.{
+  explode,
+  col,
+  avg,
+  sum,
+  desc,
+  min,
+  max,
+  slice
 }
 
 object FileProcessing {
@@ -28,25 +33,38 @@ object FileProcessing {
       "address_country" -> col("address.country"),
       "address_country_code" -> col("address.country_code"),
       "address_government_area" -> col("address.government_area"),
-      "address_location_cordinates_element_float" ->col("address.location.cordinates.element.$numberDouble").cast(DoubleType),
-      "address_location_cordinates_element_int" -> col("address.location.cordinates.element.$numberInt").cast(IntegerType),
-      "address_location_is_exact" -> col("address.location.is_location_exact").cast(BooleanType),
-      "address_location_type" -> col("address.location.type")
+      "address_location_cordinates_long" -> slice(
+        col("address.location.coordinates"),
+        1,
+        1
+      ),
+      "address_location_cordinates_lat" -> slice(
+        col("address.location.coordinates"),
+        2,
+        1
+      ),
+      //"address_location_is_exact" -> col("address.location.is_location_exact").cast(BooleanType),
+      "address_location_type" -> col("address.location.type"),
+      "address_market" -> col("address.market"),
+      "address_street" -> col("address.street"),
+      "address_suburb" -> col("address.suburb")
     )
 
-    data_frame
+    val cleanned_datas = data_frame
       .withColumns(colsMap)
       .select(
         "id",
         "accommodates",
         "address_country",
         "address_government_area",
-        "address_location_cordinates_element_float",
-        "address_location_cordinates_element_int",
-        "address_location_is_exact",
+        "address_location_cordinates_long",
+        "address_location_cordinates_lat",
+        //"address_location_is_exact",
         "address_location_type"
       )
-      .write.format("delta").mode("overwrite").save(delta_lake_path)
+
+    cleanned_datas.write.format("delta").mode("overwrite").save(delta_lake_path)
+    cleanned_datas.select("address_location_cordinates") show (false)
 
   }
   def process_transaction_json(
