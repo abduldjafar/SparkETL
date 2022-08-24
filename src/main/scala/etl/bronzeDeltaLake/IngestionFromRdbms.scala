@@ -3,13 +3,19 @@ import org.apache.spark.sql.SparkSession
 import java.util.Properties
 import org.apache.spark.sql.types.StringType
 import org.apache.spark.sql.functions.col
+import java.io.File
+import config.Config
+import com.typesafe.config.{Config => TConfig}
+
+
+
 
 object IngestionFromRdbms {
   def proces_employees_db(
       spark: SparkSession,
       delta_lake_path: String,
-      jdbcUrl: String,
-      connectionProperties: Properties
+      connectionProperties: Properties,
+      filepath: String
   ): Unit = {
     
     /*
@@ -28,6 +34,15 @@ object IngestionFromRdbms {
     +----------------------+
      */
 
+    val applicationConf: TConfig = Config(filepath)
+
+    val jdbcUsername = applicationConf.getString("mysql.user")
+    val jdbcPassword = applicationConf.getString("mysql.password")
+
+    val jdbcUrl = applicationConf.getString("jdbc.mysql_employees")
+     
+    connectionProperties.put("user", s"${jdbcUsername}")
+    connectionProperties.put("password", s"${jdbcPassword}")
     connectionProperties.put("driver", "com.mysql.cj.jdbc.Driver")
 
     val mapping_source_in_delta_lake = Map(

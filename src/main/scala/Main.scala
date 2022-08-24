@@ -4,40 +4,36 @@ import org.apache.spark.sql.SparkSession
 import java.sql.DriverManager
 import util.Properties.envOrElse
 import java.util.Properties
-import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.config.{Config => TConfig, ConfigFactory}
 import java.io.File
+import config.Config
 
 
 
 object Main {
 
+  
   def main(args: Array[String]): Unit = {
 
-    var filepath: String = "/Users/kotekaman/Documents/private/belajar/SparkETL/src/main/resources/application.conf"
+    var filepath: String = "s3://kotekaman-dev/config/application.conf"
 
     if (args.length == 1) {
          filepath = args(0).toString
     }
     
-    val applicationConf: Config = ConfigFactory.parseFile(new File(filepath))
+    val applicationConf: TConfig = Config(filepath)
 
 
     val fileProcessing = FileProcessing
     val ingestionFromRdbms = IngestionFromRdbms
     val rdbmsDataWarehousing = RdbmsDataWarehousing
-    val jdbcHostname =  applicationConf.getString("mysql.host")
-    val jdbcPort = applicationConf.getString("mysql.port")
-    val jdbcDatabase = "employees"
-    val jdbcUsername = applicationConf.getString("mysql.user")
-    val jdbcPassword = applicationConf.getString("mysql.password")
-    val delta_lake_path = applicationConf.getString("aws.delta_lake_bucket")
+ 
+    val delta_lake_path = "s3a://kotekaman-dev/"
 
-    val jdbcUrl = s"jdbc:mysql://${jdbcHostname}:${jdbcPort}/${jdbcDatabase}"
 
     val connectionProperties = new Properties()
 
-    connectionProperties.put("user", s"${jdbcUsername}")
-    connectionProperties.put("password", s"${jdbcPassword}")
+    
 
     val spark = SparkSession
       .builder()
@@ -62,8 +58,8 @@ object Main {
     ingestionFromRdbms.proces_employees_db(
       spark,
       delta_lake_path.concat("data-lake/delta-bronze"),
-      jdbcUrl,
-      connectionProperties
+      connectionProperties,
+      filepath
     )
 
     rdbmsDataWarehousing.process_db_employees_from_bronze(
