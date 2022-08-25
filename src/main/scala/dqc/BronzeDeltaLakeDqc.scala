@@ -1,11 +1,25 @@
 package dqc
-import com.amazon.deequ.VerificationSuite
+import com.amazon.deequ.{VerificationSuite,VerificationResult}
+import com.amazon.deequ.VerificationResult.checkResultsAsDataFrame
 import com.amazon.deequ.constraints.ConstrainableDataTypes
 import com.amazon.deequ.checks.{Check, CheckLevel, CheckStatus}
 import org.apache.spark.sql.SparkSession
+import com.amazon.deequ.suggestions.{ConstraintSuggestionRunner, Rules}
 
 object BronzeDeltaLakeDqc {
-  def dqcInBronzeDeltaLake(
+
+  def checkCountFailure(spark : SparkSession,verificationResult: VerificationResult): Unit = {
+    val resultDataFrame = checkResultsAsDataFrame(spark, verificationResult)
+    val failure_count = resultDataFrame.select("constraint_status").where("constraint_status='Failure'").count()
+    if (failure_count > 0) {
+        println("Threre are failures in Data Quality Check")
+        resultDataFrame.show()
+        println("exiting......")
+        System.exit(1)
+    }
+  }
+
+  def dqcAirbnbDatasetInBronzeDeltaLake(
       spark: SparkSession,
       delta_lake_path: String
   ): Unit = {
@@ -13,10 +27,13 @@ object BronzeDeltaLakeDqc {
     val verificationResult = VerificationSuite()
       .onData(data)
       .addCheck(
-        Check(CheckLevel.Error, "unit testing my data")
+        Check(CheckLevel.Error, "airbnb datasets")
           .hasDataType("accommodates", ConstrainableDataTypes.Numeric)
-          .hasSize(_ >= 100)
+          .isComplete("address_location_cordinates_long")
+          .isNonNegative("address_location_cordinates_lat")
       )
       .run()
+    checkCountFailure(spark, verificationResult)
+
   }
 }

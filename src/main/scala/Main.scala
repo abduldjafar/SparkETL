@@ -62,7 +62,7 @@ object Main {
       .getOrCreate()
 
     fileProcessing.process_airbnb(spark,s3_data_sources,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
-    bronzeDqc.dqcInBronzeDeltaLake(spark,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
+    bronzeDqc.dqcAirbnbDatasetInBronzeDeltaLake(spark,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
 
     /*
     ingestionFromRdbms.proces_employees_db(

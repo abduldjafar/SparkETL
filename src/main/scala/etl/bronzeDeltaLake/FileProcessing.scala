@@ -13,7 +13,10 @@ import org.apache.spark.sql.functions.{
   desc,
   min,
   max,
-  slice
+  slice,
+  trim,
+  ltrim,
+  rtrim
 }
 
 object FileProcessing {
@@ -23,7 +26,7 @@ object FileProcessing {
       delta_lake_path: String
   ): Unit = {
 
-    val data_frame = spark.read.json(
+    var data_frame = spark.read.json(
       data_source.concat("sample_airbnb/listingsAndReviews.json")
     )
 
@@ -33,13 +36,13 @@ object FileProcessing {
       "address_country" -> col("address.country"),
       "address_country_code" -> col("address.country_code"),
       "address_government_area" -> col("address.government_area"),
-      "address_location_cordinates_long" -> 
+      "address_location_cordinates_long" ->
         slice(
           col("address.location.coordinates"),
           1,
           1
         ),
-      "address_location_cordinates_lat" -> 
+      "address_location_cordinates_lat" ->
         slice(
           col("address.location.coordinates"),
           2,
@@ -54,11 +57,109 @@ object FileProcessing {
       "availability_30" -> col("availability.availability_30.$numberInt"),
       "availability_365" -> col("availability.availability_365.$numberInt"),
       "availability_60" -> col("availability.availability_60.$numberInt"),
-      "availability_90" -> col("availability.availability_90.$numberInt")
+      "availability_90" -> col("availability.availability_90.$numberInt"),
+      "bathrooms" -> col("bathrooms.$numberDecimal"),
+      "bedrooms" -> col("bedrooms.$numberInt"),
+      "beds" -> col("beds.$numberInt"),
+      "calendar_last_scraped" -> col("calendar_last_scraped.$date.$numberLong"),
+      "cleaning_fee" -> col("cleaning_fee.$numberDecimal"),
+      "extra_people" -> col("extra_people.$numberDecimal"),
+      "first_review" -> col("first_review.$date.$numberLong"),
+      "guests_included" -> col("guests_included.$numberDecimal"),
+      "host_about" -> col("host.host_about"),
+      "host_has_profile_pic" -> col("host.host_has_profile_pic"),
+      "host_id" -> col("host.host_id"),
+      "host_identity_verified" -> col("host.host_identity_verified"),
+      "host_is_superhost" -> col("host.host_is_superhost"),
+      "host_listings_count" -> col("host.host_listings_count.$numberInt"),
+      "host_location" -> col("host.host_location"),
+      "host_name" -> col("host.host_name"),
+      "host_neighbourhood" -> col("host.host_neighbourhood"),
+      "host_picture_url" -> col("host.host_picture_url"),
+      "host_response_rate" -> col("host.host_response_rate.$numberInt"),
+      "host_response_time" -> col("host.host_response_time"),
+      "host_thumbnail_url" -> col("host.host_thumbnail_url"),
+      "host_total_listings_count" -> col(
+        "host.host_total_listings_count.$numberInt"
+      ),
+      "host_url" -> col("host.host_url"),
+      "host_verifications" -> col("host.host_verifications"),
+      "images_medium_url" -> col("images.medium_url"),
+      "images_picture_url" -> col("images.picture_url"),
+      "images_thumbnail_url" -> col("images.thumbnail_url"),
+      "images_xl_picture_url" -> col("images.xl_picture_url"),
+      "last_review" -> col("last_review.$date.$numberLong"),
+      "last_scraped" -> col("last_scraped.$date.$numberLong"),
+      "monthly_price" -> col("monthly_price.$numberDecimal"),
+      "price" -> col("price.$numberDecimal"),
+      "review_scores_accuracy" -> col(
+        "review_scores.review_scores_accuracy.$numberInt"
+      ),
+      "review_scores_checkin" -> col(
+        "review_scores.review_scores_checkin.$numberInt"
+      ),
+      "review_scores_cleanliness" -> col(
+        "review_scores.review_scores_cleanliness.$numberInt"
+      ),
+      "review_scores_communication" -> col(
+        "review_scores.review_scores_communication.$numberInt"
+      ),
+      "review_scores_location" -> col(
+        "review_scores.review_scores_location.$numberInt"
+      ),
+      "review_scores_rating" -> col(
+        "review_scores.review_scores_rating.$numberInt"
+      ),
+      "review_scores_value" -> col(
+        "review_scores.review_scores_value.$numberInt"
+      ),
+      "reviews_per_month" -> col("reviews_per_month.$numberInt"),
+      "security_deposit" -> col("security_deposit.$numberDecimal"),
+      "weekly_price" -> col("weekly_price.$numberDecimal")
     )
 
-    val cleanned_datas = data_frame
-      .withColumns(colsMap)
+    colsMap.foreach { data =>
+      {
+        data_frame = data_frame.withColumn(data._1, data._2)
+      }
+    }
+
+    data_frame.dtypes.foreach(f => {
+      if (f._2 == "StringType") {
+        data_frame = data_frame.withColumn(f._1, trim(col(f._1)))
+      }
+    })
+    val reviewed_df = data_frame
+      .withColumn(
+        "reviews",
+        explode(col("reviews"))
+      )
+      .withColumn(
+        "reviews_id",
+        col("reviews._id")
+      )
+      .withColumn(
+        "reviews_comments",
+        col("reviews.comments")
+      )
+      .withColumn(
+        "reviews_date",
+        col("reviews.date.$date.$numberLong")
+      )
+      .withColumn(
+        "reviews_listing_id",
+        col("reviews.listing_id")
+      )
+      .withColumn(
+        "reviewer_id",
+        col("reviews.reviewer_id")
+      )
+      .withColumn(
+        "reviewer_name",
+        col("reviews.reviewer_name")
+      )
+
+    val cleanned_datas_temp = data_frame
       .withColumn(
         "address_location_cordinates_long",
         explode(col("address_location_cordinates_long"))
@@ -79,21 +180,75 @@ object FileProcessing {
         "amenities",
         explode(col("amenities"))
       )
-      .select(
-        "id",
-        "accommodates",
-        "address_country",
-        "address_government_area",
-        "address_location_cordinates_long",
-        "address_location_cordinates_lat",
-        "address_location_is_exact",
-        "address_location_type",
-        "amenities",
-        "availability_30",
-        "availability_365",
-        "availability_60",
-        "availability_90"
+      .withColumn(
+        "host_verifications",
+        explode(col("host_verifications"))
       )
+
+    val cleanned_datas = cleanned_datas_temp.select(
+      "id",
+      "accommodates",
+      "address_country",
+      "address_government_area",
+      "address_location_cordinates_long",
+      "address_location_cordinates_lat",
+      "address_location_is_exact",
+      "address_location_type",
+      "amenities",
+      "availability_30",
+      "availability_365",
+      "availability_60",
+      "availability_90",
+      "bathrooms",
+      "bed_type",
+      "cancellation_policy",
+      "description",
+      "extra_people",
+      "first_review",
+      "guests_included",
+      "host_about",
+      "host_has_profile_pic",
+      "host_id",
+      "host_identity_verified",
+      "host_is_superhost",
+      "host_listings_count",
+      "host_location",
+      "host_name",
+      "host_neighbourhood",
+      "host_picture_url",
+      "host_response_rate",
+      "host_response_time",
+      "host_thumbnail_url",
+      "host_total_listings_count",
+      "host_url",
+      "host_verifications",
+      "house_rules",
+      "interaction",
+      "last_review",
+      "last_scraped",
+      "listing_url",
+      "maximum_nights",
+      "minimum_nights",
+      "name",
+      "neighborhood_overview",
+      "notes",
+      "price",
+      "property_type",
+      "review_scores_accuracy",
+      "review_scores_checkin",
+      "review_scores_cleanliness",
+      "review_scores_communication",
+      "review_scores_location",
+      "review_scores_rating",
+      "review_scores_value",
+      "reviews_per_month",
+      "room_type",
+      "security_deposit",
+      "space",
+      "summary",
+      "transit",
+      "weekly_price"
+    )
 
     cleanned_datas.write
       .format("delta")
@@ -101,11 +256,7 @@ object FileProcessing {
       .option("overwriteSchema", "true")
       .save(delta_lake_path)
     cleanned_datas
-      .select(
-        "address_location_cordinates_long",
-        "address_location_cordinates_lat"
-      )
-      .show(false)
+      .show()
 
   }
   def process_transaction_json(
