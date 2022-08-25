@@ -1,5 +1,6 @@
 import etl.bronzeDeltaLake.{FileProcessing, IngestionFromRdbms}
 import etl.silverDeltaLake.RdbmsDataWarehousing
+import dqc.BronzeDeltaLakeDqc
 import org.apache.spark.sql.SparkSession
 import java.sql.DriverManager
 import util.Properties.envOrElse
@@ -37,6 +38,8 @@ object Main {
     val fileProcessing = FileProcessing
     val ingestionFromRdbms = IngestionFromRdbms
     val rdbmsDataWarehousing = RdbmsDataWarehousing
+
+    val bronzeDqc = BronzeDeltaLakeDqc
  
 
 
@@ -59,6 +62,7 @@ object Main {
       .getOrCreate()
 
     fileProcessing.process_airbnb(spark,s3_data_sources,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
+    bronzeDqc.dqcInBronzeDeltaLake(spark,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
 
     /*
     ingestionFromRdbms.proces_employees_db(

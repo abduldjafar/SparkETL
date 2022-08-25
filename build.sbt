@@ -22,6 +22,9 @@ libraryDependencies ++= Seq(
     "com.typesafe" % "config" % "1.3.3"
   
 )
+// https://mvnrepository.com/artifact/com.amazon.deequ/deequ
+libraryDependencies += "com.amazon.deequ" % "deequ" % "2.0.1-spark-3.2"
+
 
 assemblyMergeStrategy in assembly := {
  case PathList("META-INF", xs @ _*) => MergeStrategy.discard

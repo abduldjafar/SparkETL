@@ -33,25 +33,52 @@ object FileProcessing {
       "address_country" -> col("address.country"),
       "address_country_code" -> col("address.country_code"),
       "address_government_area" -> col("address.government_area"),
-      "address_location_cordinates_long" -> slice(
-        col("address.location.coordinates"),
-        1,
-        1
-      ),
-      "address_location_cordinates_lat" -> slice(
-        col("address.location.coordinates"),
-        2,
-        1
-      ),
-      //"address_location_is_exact" -> col("address.location.is_location_exact").cast(BooleanType),
+      "address_location_cordinates_long" -> 
+        slice(
+          col("address.location.coordinates"),
+          1,
+          1
+        ),
+      "address_location_cordinates_lat" -> 
+        slice(
+          col("address.location.coordinates"),
+          2,
+          1
+        ),
+      "address_location_is_exact" -> col("address.location.is_location_exact"),
       "address_location_type" -> col("address.location.type"),
       "address_market" -> col("address.market"),
       "address_street" -> col("address.street"),
-      "address_suburb" -> col("address.suburb")
+      "address_suburb" -> col("address.suburb"),
+      "amenities" -> col("amenities"),
+      "availability_30" -> col("availability.availability_30.$numberInt"),
+      "availability_365" -> col("availability.availability_365.$numberInt"),
+      "availability_60" -> col("availability.availability_60.$numberInt"),
+      "availability_90" -> col("availability.availability_90.$numberInt")
     )
 
     val cleanned_datas = data_frame
       .withColumns(colsMap)
+      .withColumn(
+        "address_location_cordinates_long",
+        explode(col("address_location_cordinates_long"))
+      )
+      .withColumn(
+        "address_location_cordinates_long",
+        col("address_location_cordinates_long.$numberDouble")
+      )
+      .withColumn(
+        "address_location_cordinates_lat",
+        explode(col("address_location_cordinates_lat"))
+      )
+      .withColumn(
+        "address_location_cordinates_lat",
+        col("address_location_cordinates_lat.$numberDouble")
+      )
+      .withColumn(
+        "amenities",
+        explode(col("amenities"))
+      )
       .select(
         "id",
         "accommodates",
@@ -59,12 +86,26 @@ object FileProcessing {
         "address_government_area",
         "address_location_cordinates_long",
         "address_location_cordinates_lat",
-        //"address_location_is_exact",
-        "address_location_type"
+        "address_location_is_exact",
+        "address_location_type",
+        "amenities",
+        "availability_30",
+        "availability_365",
+        "availability_60",
+        "availability_90"
       )
 
-    cleanned_datas.write.format("delta").mode("overwrite").save(delta_lake_path)
-    cleanned_datas.select("address_location_cordinates") show (false)
+    cleanned_datas.write
+      .format("delta")
+      .mode("overwrite")
+      .option("overwriteSchema", "true")
+      .save(delta_lake_path)
+    cleanned_datas
+      .select(
+        "address_location_cordinates_long",
+        "address_location_cordinates_lat"
+      )
+      .show(false)
 
   }
   def process_transaction_json(
