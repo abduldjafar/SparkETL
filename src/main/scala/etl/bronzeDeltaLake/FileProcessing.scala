@@ -158,6 +158,9 @@ object FileProcessing {
         "reviewer_name",
         col("reviews.reviewer_name")
       )
+      .select(
+        "id","reviews_id", "reviews_comments", "reviews_date", "reviews_listing_id","reviewer_id","reviewer_name"
+      )
 
     val cleanned_datas_temp = data_frame
       .withColumn(
@@ -184,6 +187,7 @@ object FileProcessing {
         "host_verifications",
         explode(col("host_verifications"))
       )
+      
 
     val cleanned_datas = cleanned_datas_temp.select(
       "id",
@@ -254,9 +258,13 @@ object FileProcessing {
       .format("delta")
       .mode("overwrite")
       .option("overwriteSchema", "true")
-      .save(delta_lake_path)
-    cleanned_datas
-      .show()
+      .save(delta_lake_path.concat("/tb_main"))
+    
+    reviewed_df.write
+      .format("delta")
+      .mode("overwrite")
+      .option("overwriteSchema", "true")
+      .save(delta_lake_path.concat("/tb_reviews"))
 
   }
   def process_transaction_json(
