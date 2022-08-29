@@ -8,6 +8,10 @@ import java.util.Properties
 import com.typesafe.config.{Config => TConfig, ConfigFactory}
 import java.io.File
 import config.Config
+import java.io.OutputStream; 
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 
 
@@ -62,7 +66,7 @@ object Main {
       .getOrCreate()
 
     fileProcessing.process_airbnb(spark,s3_data_sources,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
-    bronzeDqc.dqcAirbnbDatasetInBronzeDeltaLake(spark,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
+    bronzeDqc.dqcTbMainAirbnbDatasetInBronzeDeltaLake(spark,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
 
     /*
     ingestionFromRdbms.proces_employees_db(

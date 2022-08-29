@@ -4,7 +4,7 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.SparkFiles
 import org.apache.spark.sql.Column
-import org.apache.spark.sql.types.{IntegerType, DoubleType, BooleanType}
+import org.apache.spark.sql.types.{IntegerType, DoubleType, BooleanType,LongType}
 import org.apache.spark.sql.functions.{
   explode,
   col,
@@ -54,68 +54,68 @@ object FileProcessing {
       "address_street" -> col("address.street"),
       "address_suburb" -> col("address.suburb"),
       "amenities" -> col("amenities"),
-      "availability_30" -> col("availability.availability_30.$numberInt"),
-      "availability_365" -> col("availability.availability_365.$numberInt"),
-      "availability_60" -> col("availability.availability_60.$numberInt"),
-      "availability_90" -> col("availability.availability_90.$numberInt"),
-      "bathrooms" -> col("bathrooms.$numberDecimal"),
-      "bedrooms" -> col("bedrooms.$numberInt"),
-      "beds" -> col("beds.$numberInt"),
-      "calendar_last_scraped" -> col("calendar_last_scraped.$date.$numberLong"),
-      "cleaning_fee" -> col("cleaning_fee.$numberDecimal"),
-      "extra_people" -> col("extra_people.$numberDecimal"),
-      "first_review" -> col("first_review.$date.$numberLong"),
+      "availability_30" -> col("availability.availability_30.$numberInt").cast(IntegerType),
+      "availability_365" -> col("availability.availability_365.$numberInt").cast(IntegerType),
+      "availability_60" -> col("availability.availability_60.$numberInt").cast(IntegerType),
+      "availability_90" -> col("availability.availability_90.$numberInt").cast(IntegerType),
+      "bathrooms" -> col("bathrooms.$numberDecimal").cast(DoubleType),
+      "bedrooms" -> col("bedrooms.$numberInt").cast(IntegerType),
+      "beds" -> col("beds.$numberInt").cast(IntegerType),
+      "calendar_last_scraped" -> col("calendar_last_scraped.$date.$numberLong").cast(LongType),
+      "cleaning_fee" -> col("cleaning_fee.$numberDecimal").cast(DoubleType),
+      "extra_people" -> col("extra_people.$numberDecimal").cast(DoubleType),
+      "first_review" -> col("first_review.$date.$numberLong").cast(LongType),
       "guests_included" -> col("guests_included.$numberDecimal"),
       "host_about" -> col("host.host_about"),
       "host_has_profile_pic" -> col("host.host_has_profile_pic"),
       "host_id" -> col("host.host_id"),
       "host_identity_verified" -> col("host.host_identity_verified"),
       "host_is_superhost" -> col("host.host_is_superhost"),
-      "host_listings_count" -> col("host.host_listings_count.$numberInt"),
+      "host_listings_count" -> col("host.host_listings_count.$numberInt").cast(IntegerType),
       "host_location" -> col("host.host_location"),
       "host_name" -> col("host.host_name"),
       "host_neighbourhood" -> col("host.host_neighbourhood"),
       "host_picture_url" -> col("host.host_picture_url"),
-      "host_response_rate" -> col("host.host_response_rate.$numberInt"),
+      "host_response_rate" -> col("host.host_response_rate.$numberInt").cast(IntegerType),
       "host_response_time" -> col("host.host_response_time"),
       "host_thumbnail_url" -> col("host.host_thumbnail_url"),
       "host_total_listings_count" -> col(
         "host.host_total_listings_count.$numberInt"
-      ),
+      ).cast(IntegerType),
       "host_url" -> col("host.host_url"),
       "host_verifications" -> col("host.host_verifications"),
       "images_medium_url" -> col("images.medium_url"),
       "images_picture_url" -> col("images.picture_url"),
       "images_thumbnail_url" -> col("images.thumbnail_url"),
       "images_xl_picture_url" -> col("images.xl_picture_url"),
-      "last_review" -> col("last_review.$date.$numberLong"),
-      "last_scraped" -> col("last_scraped.$date.$numberLong"),
-      "monthly_price" -> col("monthly_price.$numberDecimal"),
-      "price" -> col("price.$numberDecimal"),
+      "last_review" -> col("last_review.$date.$numberLong").cast(LongType),
+      "last_scraped" -> col("last_scraped.$date.$numberLong").cast(LongType),
+      "monthly_price" -> col("monthly_price.$numberDecimal").cast(DoubleType),
+      "price" -> col("price.$numberDecimal").cast(DoubleType),
       "review_scores_accuracy" -> col(
         "review_scores.review_scores_accuracy.$numberInt"
-      ),
+      ).cast(IntegerType),
       "review_scores_checkin" -> col(
         "review_scores.review_scores_checkin.$numberInt"
-      ),
+      ).cast(IntegerType),
       "review_scores_cleanliness" -> col(
         "review_scores.review_scores_cleanliness.$numberInt"
-      ),
+      ).cast(IntegerType),
       "review_scores_communication" -> col(
         "review_scores.review_scores_communication.$numberInt"
-      ),
+      ).cast(IntegerType),
       "review_scores_location" -> col(
         "review_scores.review_scores_location.$numberInt"
-      ),
+      ).cast(IntegerType),
       "review_scores_rating" -> col(
         "review_scores.review_scores_rating.$numberInt"
-      ),
+      ).cast(IntegerType),
       "review_scores_value" -> col(
         "review_scores.review_scores_value.$numberInt"
-      ),
-      "reviews_per_month" -> col("reviews_per_month.$numberInt"),
-      "security_deposit" -> col("security_deposit.$numberDecimal"),
-      "weekly_price" -> col("weekly_price.$numberDecimal")
+      ).cast(IntegerType),
+      "reviews_per_month" -> col("reviews_per_month.$numberInt").cast(IntegerType),
+      "security_deposit" -> col("security_deposit.$numberDecimal").cast(DoubleType),
+      "weekly_price" -> col("weekly_price.$numberDecimal").cast(DoubleType),
     )
 
     colsMap.foreach { data =>
@@ -144,7 +144,7 @@ object FileProcessing {
       )
       .withColumn(
         "reviews_date",
-        col("reviews.date.$date.$numberLong")
+        col("reviews.date.$date.$numberLong").cast(IntegerType)
       )
       .withColumn(
         "reviews_listing_id",
@@ -169,7 +169,7 @@ object FileProcessing {
       )
       .withColumn(
         "address_location_cordinates_long",
-        col("address_location_cordinates_long.$numberDouble")
+        col("address_location_cordinates_long.$numberDouble").cast(DoubleType)
       )
       .withColumn(
         "address_location_cordinates_lat",
@@ -177,7 +177,7 @@ object FileProcessing {
       )
       .withColumn(
         "address_location_cordinates_lat",
-        col("address_location_cordinates_lat.$numberDouble")
+        col("address_location_cordinates_lat.$numberDouble").cast(DoubleType)
       )
       .withColumn(
         "amenities",
@@ -204,6 +204,8 @@ object FileProcessing {
       "availability_60",
       "availability_90",
       "bathrooms",
+      "bedrooms",
+      "beds",
       "bed_type",
       "cancellation_policy",
       "description",
@@ -265,6 +267,9 @@ object FileProcessing {
       .mode("overwrite")
       .option("overwriteSchema", "true")
       .save(delta_lake_path.concat("/tb_reviews"))
+    
+    println("debug datas not successfully in dqc")
+    cleanned_datas.select("bathrooms").where("bathrooms < 0").show()
 
   }
   def process_transaction_json(
