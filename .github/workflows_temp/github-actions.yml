@@ -15,6 +15,24 @@ jobs:
         java-version: 8
     - name: Build and Test
       run: sbt package
-    - name: list folder
-      run: ls target/scala-2.12 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: etl.jar
+        path: target/scala-2.12/sparketl_2.12-0.1.jar
+  upload:
+    runs-on: ubuntu-lates
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: python -m  pip install -r req.txt
+    - uses: actions/download-artifact@v2
+      with:
+        name: etl.jar
+    - name: Upload file to s3
+      run:  python run.py --jar etl.jar
+    
 
