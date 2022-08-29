@@ -9,8 +9,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - uses: olafurpg/setup-scala@v11
-+       with:
-+         java-version: zulu@1.11
+      with:
+        java-version: zulu@1.11
     - name: Compile
       run: sbt package
     - uses: actions/upload-artifact@v2
