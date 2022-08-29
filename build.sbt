@@ -25,9 +25,10 @@ libraryDependencies ++= Seq(
 // https://mvnrepository.com/artifact/com.amazon.deequ/deequ
 libraryDependencies += "com.amazon.deequ" % "deequ" % "2.0.1-spark-3.2"
 
-
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.15.0")
 assemblyMergeStrategy in assembly := {
  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
  case x => MergeStrategy.first
 }
+
 
