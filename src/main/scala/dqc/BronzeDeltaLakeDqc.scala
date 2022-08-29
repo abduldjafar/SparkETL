@@ -35,7 +35,7 @@ object BronzeDeltaLakeDqc {
       println("We found errors in the data:\n")
 
       var message = ""
-      val title = "error from dqyc"
+      val title = "Data Quality Check Has Some Failures"
 
       val resultsForAllConstraints = verificationResult.checkResults
         .flatMap { case (_, checkResult) => checkResult.constraintResults }
@@ -43,7 +43,10 @@ object BronzeDeltaLakeDqc {
       resultsForAllConstraints
         .filter { _.status != ConstraintStatus.Success }
         .foreach { result =>
-          message.concat(s"\\n${result.constraint}: ${result.message.get}")
+          val temp_message = s"\\n${result.constraint}: ${result.message.get}"
+          
+          message = message + temp_message
+          message = message + "\\n=============================================================="
         }
 
       notification.toDiscord(
@@ -52,7 +55,6 @@ object BronzeDeltaLakeDqc {
         message
       )
 
-      println(message)
       println("exiting......")
       System.exit(1)
     }
@@ -81,6 +83,22 @@ object BronzeDeltaLakeDqc {
           .isPositive("bedrooms")
           .hasDataType("beds", ConstrainableDataTypes.Numeric)
           .isPositive("beds")
+          .hasDataType("calendar_last_scraped",ConstrainableDataTypes.Numeric)
+          .isPositive("calendar_last_scraped")
+          .hasDataType("cleaning_fee",ConstrainableDataTypes.Numeric)
+          .isPositive("cleaning_fee")
+          .hasDataType("first_review",ConstrainableDataTypes.Numeric)
+          .isPositive("first_review")
+          .hasDataType("guests_included",ConstrainableDataTypes.Numeric)
+          .isPositive("guests_included")
+          .hasDataType("host_listings_count",ConstrainableDataTypes.Numeric)
+          .isPositive("host_listings_count")
+          .hasDataType("host_response_rate", ConstrainableDataTypes.Numeric)
+          .isPositive("host_response_rate")
+          .hasDataType("last_review", ConstrainableDataTypes.Numeric)
+          .isPositive("last_review")
+          .hasDataType("monthly_price", ConstrainableDataTypes.Numeric)
+          isPositive("monthly_price")
       )
       .run()
     chekVerificationResult(config, verificationResult)
