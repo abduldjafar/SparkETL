@@ -6,61 +6,36 @@ import com.amazon.deequ.constraints.ConstraintStatus
 import com.amazon.deequ.checks.{Check, CheckLevel, CheckStatus}
 import org.apache.spark.sql.SparkSession
 import com.amazon.deequ.suggestions.{ConstraintSuggestionRunner, Rules}
-import java.io.OutputStream;
-import java.net.URL;
-import java.io._
-import org.apache.commons._
-import org.apache.http._
-import org.apache.http.client._
-import org.apache.http.client.methods.HttpPost
 import org.apache.http.impl.client.DefaultHttpClient
-import java.util.ArrayList
-import org.apache.http.message.BasicNameValuePair
-import org.apache.http.client.entity.UrlEncodedFormEntity
-import com.google.gson.Gson
-
+import com.typesafe.config.{Config => TConfig}
 import javax.net.ssl.HttpsURLConnection;
-import java.net.{http, URI}
+import notification.Notification
 
 object BronzeDeltaLakeDqc {
 
-  def notificationTestResultDIscord(
-      title: String,
-      message: String
+  def chekVerificationResult(
+      config: TConfig,
+      verificationResult: VerificationResult
   ): Unit = {
 
-    val request = http.HttpRequest
-      .newBuilder()
-      .uri(
-        URI.create(
-          ""
-        )
-      )
-      .header("Content-Type", "application/json")
-      .method(
-        "POST",
-        http.HttpRequest.BodyPublishers.ofString(
-          "{\n    \"embeds\": [\n    {\n      \"title\": \" " + title + " \",\n      \"description\": \"" + message + "\",\n      \"color\": 15258703\n}]}"
-        )
-      )
-      .build();
+    val notification = Notification
 
-    val response = http.HttpClient
-      .newHttpClient()
-      .send(request, http.HttpResponse.BodyHandlers.ofString());
-    println(response.statusCode())
-
-  }
-
-  def chekVerificationResult(verificationResult: VerificationResult): Unit = {
     if (verificationResult.status == CheckStatus.Success) {
-      println("The data passed the test, everything is fine!")
-      notificationTestResultDIscord(
-            "success from dqyc",
-            "The data passed the test, everything is fine!"
-          )
+      val message = "The data passed the test, everything is fine!"
+      val title = "success from dqyc"
+
+      println(message)
+
+      notification.toDiscord(
+        title,
+        config,
+        message
+      )
     } else {
       println("We found errors in the data:\n")
+
+      var message = ""
+      val title = "error from dqyc"
 
       val resultsForAllConstraints = verificationResult.checkResults
         .flatMap { case (_, checkResult) => checkResult.constraintResults }
@@ -68,30 +43,16 @@ object BronzeDeltaLakeDqc {
       resultsForAllConstraints
         .filter { _.status != ConstraintStatus.Success }
         .foreach { result =>
-          println(s"${result.constraint}: ${result.message.get}")
-          notificationTestResultDIscord(
-            "error from dqyc",
-            s"${result.constraint}: ${result.message.get}"
-          )
+          message.concat(s"\\n${result.constraint}: ${result.message.get}")
         }
 
-      println("exiting......")
-      System.exit(1)
-    }
-  }
+      notification.toDiscord(
+        title,
+        config,
+        message
+      )
 
-  def checkCountFailure(
-      spark: SparkSession,
-      verificationResult: VerificationResult
-  ): Unit = {
-    val resultDataFrame = checkResultsAsDataFrame(spark, verificationResult)
-    val failure_count = resultDataFrame
-      .select("constraint_status")
-      .where("constraint_status='Failure'")
-      .count()
-    if (failure_count > 0) {
-      println("Threre are failures in Data Quality Check")
-      resultDataFrame.show()
+      println(message)
       println("exiting......")
       System.exit(1)
     }
@@ -99,6 +60,7 @@ object BronzeDeltaLakeDqc {
 
   def dqcTbMainAirbnbDatasetInBronzeDeltaLake(
       spark: SparkSession,
+      config: TConfig,
       delta_lake_path: String
   ): Unit = {
     val data =
@@ -121,7 +83,7 @@ object BronzeDeltaLakeDqc {
           .isPositive("beds")
       )
       .run()
-    chekVerificationResult(verificationResult)
+    chekVerificationResult(config, verificationResult)
 
   }
 }
