@@ -3,7 +3,7 @@ import json
 import argparse
 
 
-def spark_emr_steps(spark_packages):
+def spark_emr_steps(spark_packages,path,jar_name):
     Steps = [
         {
             "Name": "etl-to-bronze-delta-lake",
@@ -16,7 +16,7 @@ def spark_emr_steps(spark_packages):
                     "cluster",
                     "--packages",
                     spark_packages,
-                    "s3a://kotekaman-dev/data-sources/sparketl_2.12-0.1.jar",
+                    "s3a://kotekaman-dev/{}{}".format(path,jar_name),
                     "s3://kotekaman-dev/config/application.conf",
                     "s3a://kotekaman-dev/",
                     "s3a://kotekaman-dev/data-sources/",
@@ -26,7 +26,7 @@ def spark_emr_steps(spark_packages):
     ]
     return Steps
 
-def main(json_config):
+def main(json_config,path,jar_name):
 
     with open(json_config, "r") as json_file:
         config = json.load(json_file)
@@ -46,7 +46,7 @@ def main(json_config):
         ReleaseLabel=config["ReleaseLabel"],
         Applications=config["Applications"],
         Instances=config["Instances"],
-        Steps=spark_emr_steps(spark_packages),
+        Steps=spark_emr_steps(spark_packages,path,jar_name),
         VisibleToAllUsers=config["VisibleToAllUsers"],
         JobFlowRole=config["JobFlowRole"],
         ServiceRole=config["ServiceRole"],
@@ -61,10 +61,23 @@ if __name__ == "__main__":
     parser.add_argument(
         "-c", "--config", help="emr json config file", default="emr-config.json"
     )
+    parser.add_argument(
+        "-p",
+        "--path",
+        help="path for save jar in bucket",
+        default="spark-applications/",
+    )
+    parser.add_argument(
+        "-f", "--filename", help="filename in bucket", default="sparketl_2.12-0.1.jar"
+    )
 
     # Read arguments from command line
     args = parser.parse_args()
 
     config = args.config
-    cluster_id = main(config)
+    file_path = args.path
+    filename = args.filename
+
+    cluster_id = main(config,file_path,filename)
+    
     print("cluster created with the step...", cluster_id["JobFlowId"])

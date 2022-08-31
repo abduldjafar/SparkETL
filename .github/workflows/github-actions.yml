@@ -31,6 +31,21 @@ jobs:
       with:
         name: etl.jar
     - name: Upload file to s3
-      run:  python build.py --jar etl.jar --filename etl.jar 
+      run:  python build.py --jar etl.jar --filename etl.jar
+  runt_etl:
+    runs-on: ubuntu-lates
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: python -m  pip install -r req.txt
+    - uses: actions/download-artifact@v2
+      with:
+        name: etl.jar
+    - name: Upload file to s3
+      run:  python run_in_emr.py --filename etl.jar
     
 
