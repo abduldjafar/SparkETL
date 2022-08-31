@@ -1,5 +1,5 @@
 {
-    "region_name":"us-east-2",
+    "region_name": "us-east-2",
     "spark_packages": [
       "com.github.housepower:clickhouse-spark-runtime-3.3_2.12:0.5.0",
       "org.scala-lang:scala-reflect:2.12.10",
@@ -10,31 +10,39 @@
     ],
     "spark_emr_extra_config": [
       {
-        "Classification": "hadoop-env", 
+        "Classification": "spark-defaults",
+        "Properties": {
+          "spark.driver.defaultJavaOptions": "-XX:OnOutOfMemoryError='kill -9 %p' -XX:MaxHeapFreeRatio=70",
+          "spark.executor.defaultJavaOptions": "-verbose:gc -Xlog:gc*::time -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:OnOutOfMemoryError='kill -9 %p' -XX:MaxHeapFreeRatio=70 -XX:+IgnoreUnrecognizedVMOptions"
+        },
+        "Configurations": []
+      },
+      {
+        "Classification": "hadoop-env",
         "Configurations": [
-            {
-                "Classification": "export", 
-                "Configurations": [], 
-                "Properties": {
-                    "JAVA_HOME": "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
-                }
+          {
+            "Classification": "export",
+            "Configurations": [],
+            "Properties": {
+              "JAVA_HOME": "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
             }
-        ], 
+          }
+        ],
         "Properties": {}
-    }, 
-    {
-        "Classification": "spark-env", 
+      },
+      {
+        "Classification": "spark-env",
         "Configurations": [
-            {
-                "Classification": "export", 
-                "Configurations": [], 
-                "Properties": {
-                    "JAVA_HOME": "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
-                }
+          {
+            "Classification": "export",
+            "Configurations": [],
+            "Properties": {
+              "JAVA_HOME": "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
             }
-        ], 
+          }
+        ],
         "Properties": {}
-    }
+      }
     ],
     "Name": "test_emr_job_boto3",
     "LogUri": "s3://aws-logs-996386071855-us-east-2/elasticmapreduce/test_emr_job_boto3",
@@ -52,20 +60,14 @@
           "InstanceRole": "MASTER",
           "InstanceType": "m5.xlarge",
           "InstanceCount": 1
-        },
-        {
-          "Name": "Slave nodes",
-          "Market": "ON_DEMAND",
-          "InstanceRole": "CORE",
-          "InstanceType": "m5.xlarge",
-          "InstanceCount": 1
         }
       ],
+      "Ec2KeyName": "",
       "KeepJobFlowAliveWhenNoSteps": false,
       "TerminationProtected": false,
       "Ec2SubnetId": "subnet-0cb9bf214e2a12e90"
     },
-    "VisibleToAllUsers":true,
-    "JobFlowRole":"EMR_EC2_DefaultRole",
-    "ServiceRole":"EMR_DefaultRole"
+    "VisibleToAllUsers": true,
+    "JobFlowRole": "EMR_EC2_DefaultRole",
+    "ServiceRole": "EMR_DefaultRole"
   }
