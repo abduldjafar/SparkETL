@@ -26,17 +26,17 @@ def spark_emr_steps(spark_packages):
     ]
     return Steps
 
-
-connection = boto3.client(
-    "emr",
-    region_name="us-east-2",
-)
-
-
 def main(json_config):
+
+    
 
     with open(json_config, "r") as json_file:
         config = json.load(json_file)
+    
+    connection = boto3.client(
+        "emr",
+        region_name=config["region_name"],
+    )
 
     spark_packages = config["spark_packages"]
     spark_emr_extra_config = config["spark_emr_extra_config"]
