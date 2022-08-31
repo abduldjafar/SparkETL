@@ -28,8 +28,6 @@ def spark_emr_steps(spark_packages):
 
 def main(json_config):
 
-    
-
     with open(json_config, "r") as json_file:
         config = json.load(json_file)
     
@@ -39,12 +37,10 @@ def main(json_config):
     )
 
     spark_packages = config["spark_packages"]
-    spark_emr_extra_config = config["spark_emr_extra_config"]
-
     spark_packages = ",".join(spark_packages)
 
     cluster_id = connection.run_job_flow(
-        # Configurations=spark_emr_extra_config,
+        Configurations=config["spark_emr_extra_config"],
         Name=config["Name"],
         LogUri=config["LogUri"],
         ReleaseLabel=config["ReleaseLabel"],

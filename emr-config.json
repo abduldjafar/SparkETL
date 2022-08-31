@@ -10,22 +10,31 @@
     ],
     "spark_emr_extra_config": [
       {
-        "Classification": "spark-env",
+        "Classification": "hadoop-env", 
         "Configurations": [
-          {
-            "Classification": "export",
-            "Properties": {
-              "JAVA_HOME": "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
+            {
+                "Classification": "export", 
+                "Configurations": [], 
+                "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
+                }
             }
-          }
-        ]
-      },
-      {
-        "Classification": "spark-defaults",
-        "Properties": {
-          "spark.executorEnv.JAVA_HOME": "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
-        }
-      }
+        ], 
+        "Properties": {}
+    }, 
+    {
+        "Classification": "spark-env", 
+        "Configurations": [
+            {
+                "Classification": "export", 
+                "Configurations": [], 
+                "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-11-amazon-corretto.x86_64"
+                }
+            }
+        ], 
+        "Properties": {}
+    }
     ],
     "Name": "test_emr_job_boto3",
     "LogUri": "s3://aws-logs-996386071855-us-east-2/elasticmapreduce/test_emr_job_boto3",
@@ -55,5 +64,8 @@
       "KeepJobFlowAliveWhenNoSteps": false,
       "TerminationProtected": false,
       "Ec2SubnetId": "subnet-0cb9bf214e2a12e90"
-    }
+    },
+    "VisibleToAllUsers":true,
+    "JobFlowRole":"EMR_EC2_DefaultRole",
+    "ServiceRole":"EMR_DefaultRole"
   }
