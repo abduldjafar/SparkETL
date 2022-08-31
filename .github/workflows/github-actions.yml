@@ -31,6 +31,6 @@ jobs:
       with:
         name: etl.jar
     - name: Upload file to s3
-      run:  python run.py --jar etl.jar
+      run:  python build.py --jar etl.jar --filename etl.jar 
     
 

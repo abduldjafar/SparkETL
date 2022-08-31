@@ -19,7 +19,7 @@ def upload_file(file_name, bucket, object_name=None):
         object_name = os.path.basename(file_name)
 
     # Upload the file
-    s3_client = boto3.client('s3')
+    s3_client = boto3.client("s3")
     try:
         response = s3_client.upload_file(file_name, bucket, object_name)
     except ClientError as e:
@@ -27,18 +27,35 @@ def upload_file(file_name, bucket, object_name=None):
         return False
     return True
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
-
-
     # Adding optional argument
-    parser.add_argument("-j", "--jar", help = "jar file for upload",default="target/scala-2.12/sparketl_2.12-0.1.jar")
+    parser.add_argument(
+        "-j",
+        "--jar",
+        help="jar file for upload",
+        default="target/scala-2.12/sparketl_2.12-0.1.jar",
+    )
+    parser.add_argument("-b", "--bucket", help="s3 bucket", default="kotekaman-dev")
+    parser.add_argument(
+        "-p",
+        "--path",
+        help="path for save jar in bucket",
+        default="spark-applications/",
+    )
+    parser.add_argument(
+        "-f", "--filename", help="filename in bucket", default="sparketl_2.12-0.1.jar"
+    )
 
-    
     # Read arguments from command line
     args = parser.parse_args()
 
-    filename = args.jar
-    upload_process = upload_file(filename,"kotekaman-dev","data-sources/{}".format(filename))
+    file = args.jar
+    bucket = args.bucket
+    path = args.path
+    filename = args.filename
+
+    upload_process = upload_file(file, bucket, "{}{}".format(path, filename))
     print(upload_process)
