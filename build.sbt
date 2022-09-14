@@ -25,7 +25,6 @@ libraryDependencies ++= Seq(
 // https://mvnrepository.com/artifact/com.amazon.deequ/deequ
 libraryDependencies += "com.amazon.deequ" % "deequ" % "2.0.1-spark-3.2"
 // https://mavenlibs.com/maven/dependency/com.github.housepower/clickhouse-spark-runtime-3.3_2.12
-libraryDependencies += "com.github.housepower" % "clickhouse-spark-runtime-3.3_2.12" % "0.5.0"
 // https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc
 libraryDependencies += "com.clickhouse" % "clickhouse-jdbc" % "0.3.2-patch11"
 
