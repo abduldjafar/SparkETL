@@ -3,8 +3,15 @@ package etl.bronzeDeltaLake
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.SparkFiles
-import org.apache.spark.sql.Column
-import org.apache.spark.sql.types.{IntegerType, DoubleType, BooleanType,LongType}
+import org.apache.spark.sql.{Column, DataFrame}
+import org.apache.spark.sql.types.{
+  IntegerType,
+  DoubleType,
+  BooleanType,
+  LongType,
+  StructType,
+  ArrayType
+}
 import org.apache.spark.sql.functions.{
   explode,
   col,
@@ -20,6 +27,24 @@ import org.apache.spark.sql.functions.{
 }
 
 object FileProcessing {
+  def flattenStructSchema(
+      schema: StructType,
+      prefix: String = null
+  ): Array[Column] = {
+    schema.fields.flatMap(f => {
+      val columnName = if (prefix == null) f.name else (prefix + "." + f.name)
+
+      f.dataType match {
+        case st: StructType => flattenStructSchema(st, columnName)
+        case _ =>
+          Array(
+            col(columnName).as(columnName.replace(".", "_").replace("$", ""))
+          )
+      }
+
+    })
+  }
+
   def process_airbnb(
       spark: SparkSession,
       data_source: String,
@@ -30,250 +55,26 @@ object FileProcessing {
       data_source.concat("sample_airbnb/listingsAndReviews.json")
     )
 
-    val colsMap: Map[String, Column] = Map(
-      "id" -> col("_id"),
-      "accommodates" -> col("accommodates.$numberInt").cast(IntegerType),
-      "address_country" -> col("address.country"),
-      "address_country_code" -> col("address.country_code"),
-      "address_government_area" -> col("address.government_area"),
-      "address_location_cordinates_long" ->
-        slice(
-          col("address.location.coordinates"),
-          1,
-          1
-        ),
-      "address_location_cordinates_lat" ->
-        slice(
-          col("address.location.coordinates"),
-          2,
-          1
-        ),
-      "address_location_is_exact" -> col("address.location.is_location_exact"),
-      "address_location_type" -> col("address.location.type"),
-      "address_market" -> col("address.market"),
-      "address_street" -> col("address.street"),
-      "address_suburb" -> col("address.suburb"),
-      "amenities" -> col("amenities"),
-      "availability_30" -> col("availability.availability_30.$numberInt").cast(IntegerType),
-      "availability_365" -> col("availability.availability_365.$numberInt").cast(IntegerType),
-      "availability_60" -> col("availability.availability_60.$numberInt").cast(IntegerType),
-      "availability_90" -> col("availability.availability_90.$numberInt").cast(IntegerType),
-      "bathrooms" -> col("bathrooms.$numberDecimal").cast(DoubleType),
-      "bedrooms" -> col("bedrooms.$numberInt").cast(IntegerType),
-      "beds" -> col("beds.$numberInt").cast(IntegerType),
-      "calendar_last_scraped" -> col("calendar_last_scraped.$date.$numberLong").cast(LongType),
-      "cleaning_fee" -> col("cleaning_fee.$numberDecimal").cast(DoubleType),
-      "extra_people" -> col("extra_people.$numberDecimal").cast(DoubleType),
-      "first_review" -> col("first_review.$date.$numberLong").cast(LongType),
-      "guests_included" -> col("guests_included.$numberDecimal").cast(DoubleType),
-      "host_about" -> col("host.host_about"),
-      "host_has_profile_pic" -> col("host.host_has_profile_pic"),
-      "host_id" -> col("host.host_id"),
-      "host_identity_verified" -> col("host.host_identity_verified"),
-      "host_is_superhost" -> col("host.host_is_superhost"),
-      "host_listings_count" -> col("host.host_listings_count.$numberInt").cast(IntegerType),
-      "host_location" -> col("host.host_location"),
-      "host_name" -> col("host.host_name"),
-      "host_neighbourhood" -> col("host.host_neighbourhood"),
-      "host_picture_url" -> col("host.host_picture_url"),
-      "host_response_rate" -> col("host.host_response_rate.$numberInt").cast(IntegerType),
-      "host_response_time" -> col("host.host_response_time"),
-      "host_thumbnail_url" -> col("host.host_thumbnail_url"),
-      "host_total_listings_count" -> col(
-        "host.host_total_listings_count.$numberInt"
-      ).cast(IntegerType),
-      "host_url" -> col("host.host_url"),
-      "host_verifications" -> col("host.host_verifications"),
-      "images_medium_url" -> col("images.medium_url"),
-      "images_picture_url" -> col("images.picture_url"),
-      "images_thumbnail_url" -> col("images.thumbnail_url"),
-      "images_xl_picture_url" -> col("images.xl_picture_url"),
-      "last_review" -> col("last_review.$date.$numberLong").cast(LongType),
-      "last_scraped" -> col("last_scraped.$date.$numberLong").cast(LongType),
-      "monthly_price" -> col("monthly_price.$numberDecimal").cast(DoubleType),
-      "price" -> col("price.$numberDecimal").cast(DoubleType),
-      "review_scores_accuracy" -> col(
-        "review_scores.review_scores_accuracy.$numberInt"
-      ).cast(IntegerType),
-      "review_scores_checkin" -> col(
-        "review_scores.review_scores_checkin.$numberInt"
-      ).cast(IntegerType),
-      "review_scores_cleanliness" -> col(
-        "review_scores.review_scores_cleanliness.$numberInt"
-      ).cast(IntegerType),
-      "review_scores_communication" -> col(
-        "review_scores.review_scores_communication.$numberInt"
-      ).cast(IntegerType),
-      "review_scores_location" -> col(
-        "review_scores.review_scores_location.$numberInt"
-      ).cast(IntegerType),
-      "review_scores_rating" -> col(
-        "review_scores.review_scores_rating.$numberInt"
-      ).cast(IntegerType),
-      "review_scores_value" -> col(
-        "review_scores.review_scores_value.$numberInt"
-      ).cast(IntegerType),
-      "reviews_per_month" -> col("reviews_per_month.$numberInt").cast(IntegerType),
-      "security_deposit" -> col("security_deposit.$numberDecimal").cast(DoubleType),
-      "weekly_price" -> col("weekly_price.$numberDecimal").cast(DoubleType),
-    )
-
-    colsMap.foreach { data =>
-      {
-        data_frame = data_frame.withColumn(data._1, data._2)
-      }
-    }
-
-    data_frame.dtypes.foreach(f => {
-      if (f._2 == "StringType") {
-        data_frame = data_frame.withColumn(f._1, trim(col(f._1)))
-      }
-    })
-    val reviewed_df = data_frame
+    val df3 = data_frame
+      .select(flattenStructSchema(data_frame.schema): _*)
+      .withColumn("reviews", explode(col("reviews")))
       .withColumn(
-        "reviews",
-        explode(col("reviews"))
+        "host_host_verifications",
+        explode(col("host_host_verifications"))
       )
+      .withColumn("amenities", explode(col("amenities")))
       .withColumn(
-        "reviews_id",
-        col("reviews._id")
-      )
-      .withColumn(
-        "reviews_comments",
-        col("reviews.comments")
-      )
-      .withColumn(
-        "reviews_date",
-        col("reviews.date.$date.$numberLong").cast(IntegerType)
-      )
-      .withColumn(
-        "reviews_listing_id",
-        col("reviews.listing_id")
-      )
-      .withColumn(
-        "reviewer_id",
-        col("reviews.reviewer_id")
-      )
-      .withColumn(
-        "reviewer_name",
-        col("reviews.reviewer_name")
-      )
-      .select(
-        "id","reviews_id", "reviews_comments", "reviews_date", "reviews_listing_id","reviewer_id","reviewer_name"
+        "address_location_coordinates",
+        explode(col("address_location_coordinates"))
       )
 
-    val cleanned_datas_temp = data_frame
-      .withColumn(
-        "address_location_cordinates_long",
-        explode(col("address_location_cordinates_long"))
-      )
-      .withColumn(
-        "address_location_cordinates_long",
-        col("address_location_cordinates_long.$numberDouble").cast(DoubleType)
-      )
-      .withColumn(
-        "address_location_cordinates_lat",
-        explode(col("address_location_cordinates_lat"))
-      )
-      .withColumn(
-        "address_location_cordinates_lat",
-        col("address_location_cordinates_lat.$numberDouble").cast(DoubleType)
-      )
-      .withColumn(
-        "amenities",
-        explode(col("amenities"))
-      )
-      .withColumn(
-        "host_verifications",
-        explode(col("host_verifications"))
-      )
-      
-
-    val cleanned_datas = cleanned_datas_temp.select(
-      "id",
-      "accommodates",
-      "address_country",
-      "address_government_area",
-      "address_location_cordinates_long",
-      "address_location_cordinates_lat",
-      "address_location_is_exact",
-      "address_location_type",
-      "amenities",
-      "availability_30",
-      "availability_365",
-      "availability_60",
-      "availability_90",
-      "bathrooms",
-      "bedrooms",
-      "beds",
-      "bed_type",
-      "cancellation_policy",
-      "description",
-      "extra_people",
-      "first_review",
-      "calendar_last_scraped",
-      "cleaning_fee",
-      "guests_included",
-      "host_about",
-      "host_has_profile_pic",
-      "host_id",
-      "host_identity_verified",
-      "host_is_superhost",
-      "host_listings_count",
-      "host_location",
-      "host_name",
-      "host_neighbourhood",
-      "host_picture_url",
-      "host_response_rate",
-      "host_response_time",
-      "host_thumbnail_url",
-      "host_total_listings_count",
-      "host_url",
-      "host_verifications",
-      "monthly_price",
-      "house_rules",
-      "interaction",
-      "last_review",
-      "last_scraped",
-      "listing_url",
-      "maximum_nights",
-      "minimum_nights",
-      "name",
-      "neighborhood_overview",
-      "notes",
-      "price",
-      "property_type",
-      "review_scores_accuracy",
-      "review_scores_checkin",
-      "review_scores_cleanliness",
-      "review_scores_communication",
-      "review_scores_location",
-      "review_scores_rating",
-      "review_scores_value",
-      "reviews_per_month",
-      "room_type",
-      "security_deposit",
-      "space",
-      "summary",
-      "transit",
-      "weekly_price"
-    )
+    val cleanned_datas = df3.select(flattenStructSchema(df3.schema): _*)
 
     cleanned_datas.write
       .format("delta")
       .mode("overwrite")
       .option("overwriteSchema", "true")
       .save(delta_lake_path.concat("/tb_main"))
-    
-    reviewed_df.write
-      .format("delta")
-      .mode("overwrite")
-      .option("overwriteSchema", "true")
-      .save(delta_lake_path.concat("/tb_reviews"))
-    
-    println("debug datas not successfully in dqc")
-    cleanned_datas.select("bathrooms").where("bathrooms < 0").show()
-
   }
   def process_transaction_json(
       spark: SparkSession,

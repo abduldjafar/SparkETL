@@ -66,27 +66,6 @@ object Main {
       .getOrCreate()
 
     fileProcessing.process_airbnb(spark,s3_data_sources,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
-    bronzeDqc.dqcTbMainAirbnbDatasetInBronzeDeltaLake(spark,applicationConf,delta_lake_path.concat("data-lake/delta-bronze/airbnn_example_datas"))
-
-    /*
-    ingestionFromRdbms.proces_employees_db(
-      spark,
-      delta_lake_path.concat("data-lake/delta-bronze"),
-      connectionProperties,
-      filepath
-    )
-
-    rdbmsDataWarehousing.process_db_employees_from_bronze(
-      spark,
-      delta_lake_path.concat("data-lake/delta-bronze/db_employees/"),
-      delta_lake_path.concat("data-lake/delta-silver/dwh/")
-    )
-     
-    fileProcessing.process_transaction_json(
-    spark,
-    "data-lake/delta-bronze/transactions-json"
-    )
-    */
 
   }
 }
